@@ -1,0 +1,1159 @@
+/* ==========================================================================
+   AppetitQR menu — frontend styles
+
+   Everything is scoped under .appetitqr-app and styled with explicit properties
+   rather than resets, because this markup lives inside a host theme's page: the
+   plugin must not restyle the theme, and the theme's cascade must not be able to
+   flatten the menu. Colors come from the custom properties ThemeService writes
+   per instance (--apq-primary / --apq-secondary / --apq-on-primary).
+   ========================================================================== */
+
+.appetitqr-app.appetitqr-app {
+    --apq-radius: 12px;
+    --apq-gap: 20px;
+    --apq-border: rgba(0, 0, 0, .1);
+    --apq-muted: #6b7280;
+    --apq-surface: #ffffff;
+    --apq-text: #1f2937;
+
+    box-sizing: border-box;
+    color: var(--apq-text);
+    font-size: 16px;
+    line-height: 1.5;
+    width: 100%;
+}
+
+.appetitqr-app.appetitqr-app *,
+.appetitqr-app.appetitqr-app *::before,
+.appetitqr-app.appetitqr-app *::after {
+    box-sizing: border-box;
+}
+
+.appetitqr-app.appetitqr-app img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Theme neutralisation ---------------------------------------------------
+
+   Host themes style bare `button`, `a` and `input`, and those rules reach
+   inside this widget. The menu deliberately inherits the site's typeface so it
+   belongs on the page, but not the decoration themes bolt onto controls —
+   uppercase buttons, letter-spacing, shadows and underlines all distort the
+   layout. Reset those here, before the component rules, so components (0-3-0)
+   still win over this block (0-2-1) on the properties they care about.
+   ---------------------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app :is(button, input, select, textarea) {
+    /* Controls don't inherit fonts from the page by default — this is what makes
+       the menu pick up the site's typeface instead of the browser's. */
+    font-family: inherit;
+    letter-spacing: normal;
+    text-transform: none;
+    box-shadow: none;
+}
+
+.appetitqr-app.appetitqr-app :is(a, button) {
+    text-decoration: none;
+}
+
+/* Headings and prices must state their colour explicitly. Left to inherit, the
+   host theme's h2/h3/h4 rules win — nothing of ours competes — and every title
+   in the menu silently adopts the theme's heading colour instead of the
+   template's. That also breaks dark palettes outright, where the theme's dark
+   heading colour lands on a dark surface. */
+.appetitqr-app.appetitqr-app .apq-header-title,
+.appetitqr-app.appetitqr-app .apq-category-title,
+.appetitqr-app.appetitqr-app .apq-product-title,
+.appetitqr-app.appetitqr-app .apq-info-title,
+.appetitqr-app.appetitqr-app .apq-modal-title,
+.appetitqr-app.appetitqr-app .apq-modal-section-title,
+.appetitqr-app.appetitqr-app .apq-cart-title,
+.appetitqr-app.appetitqr-app .apq-list-name,
+.appetitqr-app.appetitqr-app .apq-price,
+.appetitqr-app.appetitqr-app .apq-price-from,
+.appetitqr-app.appetitqr-app .apq-modal-price,
+.appetitqr-app.appetitqr-app .apq-cart-item-name,
+.appetitqr-app.appetitqr-app .apq-info-line,
+.appetitqr-app.appetitqr-app .apq-hours-times,
+.appetitqr-app.appetitqr-app .apq-list-total {
+    color: var(--apq-text);
+}
+
+/* Notices ---------------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app.apq-notice {
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+    border-radius: var(--apq-radius);
+    color: #78350f;
+    padding: 14px 16px;
+}
+
+.appetitqr-app.appetitqr-app .apq-admin-notice {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: var(--apq-radius);
+    color: #1e40af;
+    font-size: .875rem;
+    margin-bottom: 16px;
+    padding: 10px 14px;
+}
+
+/* Hero -------------------------------------------------------------------
+
+   The landscape cover the diner-facing menu opens with. Heights mirror the
+   templates: default h-48/sm:h-64, modern and nocturnal h-72/sm:h-80. Bistro
+   uses .apq-hero-type instead — it has no cover image by design.
+   ---------------------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app .apq-hero {
+    border-radius: var(--apq-radius);
+    height: 192px;
+    margin-bottom: var(--apq-gap);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.appetitqr-app.appetitqr-app .apq-hero-image {
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+}
+
+/* The name sits on an arbitrary photograph, so it gets a guaranteed backdrop
+   rather than relying on the image being dark enough. */
+.appetitqr-app.appetitqr-app .apq-hero-scrim {
+    background: rgba(0, 0, 0, .4);
+    inset: 0;
+    position: absolute;
+}
+
+.appetitqr-app.appetitqr-app .apq-hero-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    justify-content: center;
+    padding: 16px;
+    position: relative;
+    text-align: center;
+}
+
+.appetitqr-app.appetitqr-app .apq-hero-logo {
+    border-radius: 50%;
+    height: 40px;
+    object-fit: cover;
+    width: 40px;
+}
+
+/* Hero text always sits on the scrim, so it is pinned light rather than
+   following --apq-text, which flips with the palette. */
+.appetitqr-app.appetitqr-app .apq-hero-title {
+    color: #f1f5f9;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-hero-subtitle {
+    color: #f1f5f9;
+    display: -webkit-box;
+    margin: 0;
+    max-width: 80%;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-modern .apq-hero,
+.appetitqr-app.appetitqr-app.apq-tpl-nocturnal .apq-hero {
+    height: 288px;
+}
+
+/* Bistro: typographic header, no image. */
+.appetitqr-app.appetitqr-app .apq-hero-type {
+    border-bottom: 1px solid var(--apq-border);
+    margin-bottom: var(--apq-gap);
+    padding: 24px 16px 20px;
+    text-align: center;
+}
+
+.appetitqr-app.appetitqr-app .apq-hero-type .apq-hero-title {
+    color: var(--apq-text);
+    font-size: 1.75rem;
+}
+
+.appetitqr-app.appetitqr-app .apq-hero-type .apq-hero-subtitle {
+    color: var(--apq-muted);
+    margin: 6px auto 0;
+}
+
+/* Header (fallback: hero template with no cover uploaded) ----------------- */
+
+.appetitqr-app.appetitqr-app .apq-header {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    margin-bottom: var(--apq-gap);
+}
+
+.appetitqr-app.appetitqr-app .apq-header-logo {
+    border-radius: var(--apq-radius);
+    height: 64px;
+    object-fit: cover;
+    width: 64px;
+}
+
+.appetitqr-app.appetitqr-app .apq-header-title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-header-subtitle {
+    color: var(--apq-muted);
+    margin: 4px 0 0;
+}
+
+/* Toolbar ---------------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app .apq-toolbar {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.appetitqr-app.appetitqr-app .apq-search {
+    flex: 1 1 240px;
+    position: relative;
+}
+
+.appetitqr-app.appetitqr-app .apq-search-input {
+    background: var(--apq-surface);
+    border: 1px solid var(--apq-border);
+    border-radius: 999px;
+    color: var(--apq-text);
+    font-size: 1rem;
+    padding: 10px 40px 10px 16px;
+    width: 100%;
+}
+
+.appetitqr-app.appetitqr-app .apq-search-input:focus {
+    border-color: var(--apq-primary);
+    outline: 2px solid color-mix(in srgb, var(--apq-primary) 35%, transparent);
+    outline-offset: 1px;
+}
+
+.appetitqr-app.appetitqr-app .apq-search-clear {
+    background: none;
+    border: 0;
+    color: var(--apq-muted);
+    cursor: pointer;
+    font-size: 1.35rem;
+    line-height: 1;
+    padding: 4px 10px;
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-toggle {
+    align-items: center;
+    background: var(--apq-primary);
+    border: 0;
+    border-radius: 999px;
+    color: var(--apq-on-primary);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: .95rem;
+    font-weight: 600;
+    gap: 8px;
+    padding: 10px 18px;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-count {
+    background: rgba(255, 255, 255, .25);
+    border-radius: 999px;
+    font-size: .8rem;
+    min-width: 22px;
+    padding: 1px 7px;
+    text-align: center;
+}
+
+/* Category nav ----------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app .apq-category-nav {
+    border-bottom: 1px solid var(--apq-border);
+    margin-bottom: var(--apq-gap);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.appetitqr-app.appetitqr-app .apq-category-nav-list {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 8px;
+    white-space: nowrap;
+}
+
+.appetitqr-app.appetitqr-app .apq-category-nav-list li {
+    margin: 0;
+}
+
+.appetitqr-app.appetitqr-app a.apq-category-link {
+    border-radius: 999px;
+    color: var(--apq-muted);
+    display: inline-block;
+    font-size: .925rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    text-decoration: none;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.appetitqr-app.appetitqr-app a.apq-category-link:hover,
+.appetitqr-app.appetitqr-app a.apq-category-link:focus {
+    background: var(--apq-secondary);
+    color: var(--apq-text);
+}
+
+.appetitqr-app.appetitqr-app a.apq-category-link.is-active {
+    background: var(--apq-primary);
+    color: var(--apq-on-primary);
+}
+
+/* Menu ------------------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app .apq-category {
+    margin-bottom: 32px;
+    scroll-margin-top: 90px;
+}
+
+.appetitqr-app.appetitqr-app .apq-category-title {
+    font-size: 1.25rem;
+    margin: 0 0 14px;
+}
+
+.appetitqr-app.appetitqr-app .apq-products {
+    display: grid;
+    gap: var(--apq-gap);
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.appetitqr-app.appetitqr-app .apq-empty,
+.appetitqr-app.appetitqr-app .apq-empty-search {
+    color: var(--apq-muted);
+    padding: 24px 0;
+    text-align: center;
+}
+
+/* Product card ----------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app .apq-product {
+    background: var(--apq-surface);
+    cursor: pointer;
+    border: 1px solid var(--apq-border);
+    border-radius: var(--apq-radius);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow .15s ease, transform .15s ease;
+}
+
+.appetitqr-app.appetitqr-app .apq-product:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .08);
+}
+
+.appetitqr-app.appetitqr-app .apq-product.is-unavailable {
+    opacity: .6;
+}
+
+.appetitqr-app.appetitqr-app .apq-product.is-featured {
+    border-color: var(--apq-primary);
+}
+
+.appetitqr-app.appetitqr-app .apq-product-media {
+    position: relative;
+}
+
+.appetitqr-app.appetitqr-app .apq-product-media-btn {
+    display: block;
+    width: 100%;
+}
+
+.appetitqr-app.appetitqr-app .apq-product-media img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+}
+
+.appetitqr-app.appetitqr-app .apq-badge {
+    background: rgba(17, 17, 17, .8);
+    border-radius: 999px;
+    color: #fff;
+    font-size: .75rem;
+    left: 10px;
+    padding: 3px 10px;
+    position: absolute;
+    top: 10px;
+}
+
+.appetitqr-app.appetitqr-app .apq-product-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px 16px;
+}
+
+.appetitqr-app.appetitqr-app .apq-product-title {
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+
+
+.appetitqr-app.appetitqr-app .apq-product-description {
+    color: var(--apq-muted);
+    font-size: .9rem;
+    margin: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-tag {
+    background: var(--apq-secondary);
+    color: var(--apq-on-secondary);
+    border-radius: 999px;
+    font-size: .72rem;
+    padding: 2px 9px;
+}
+
+.appetitqr-app.appetitqr-app .apq-product-footer {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 6px;
+}
+
+.appetitqr-app.appetitqr-app .apq-price,
+.appetitqr-app.appetitqr-app .apq-price-sale {
+    font-weight: 700;
+}
+
+.appetitqr-app.appetitqr-app .apq-price-original {
+    color: var(--apq-muted);
+    margin-right: 6px;
+    text-decoration: line-through;
+}
+
+.appetitqr-app.appetitqr-app .apq-price-sale {
+    color: var(--apq-primary);
+}
+
+.appetitqr-app.appetitqr-app .apq-price-from {
+    font-weight: 600;
+}
+
+.appetitqr-app.appetitqr-app .apq-add-to-cart {
+    background: var(--apq-primary);
+    border: 0;
+    border-radius: 999px;
+    color: var(--apq-on-primary);
+    cursor: pointer;
+    font-size: .875rem;
+    font-weight: 600;
+    padding: 8px 16px;
+}
+
+.appetitqr-app.appetitqr-app .apq-add-to-cart:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+}
+
+.appetitqr-app.appetitqr-app .apq-unavailable-note {
+    color: var(--apq-muted);
+    font-size: .85rem;
+}
+
+/* Compact, image-free variant ------------------------------------------- */
+
+.appetitqr-app.appetitqr-app.apq-no-images .apq-products {
+    grid-template-columns: 1fr;
+}
+
+.appetitqr-app.appetitqr-app.apq-no-images .apq-product {
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    border-top: 0;
+}
+
+/* Info block ------------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app .apq-info {
+    border-top: 1px solid var(--apq-border);
+    display: grid;
+    gap: var(--apq-gap);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-top: 32px;
+    padding-top: 24px;
+}
+
+.appetitqr-app.appetitqr-app .apq-info-title {
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    gap: 8px;
+    margin: 0 0 8px;
+}
+
+.appetitqr-app.appetitqr-app .apq-info-line {
+    margin: 0 0 10px;
+}
+
+.appetitqr-app.appetitqr-app .apq-open-badge {
+    background: #fee2e2;
+    border-radius: 999px;
+    color: #991b1b;
+    font-size: .72rem;
+    font-weight: 600;
+    padding: 2px 9px;
+}
+
+.appetitqr-app.appetitqr-app .apq-open-badge.is-open {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.appetitqr-app.appetitqr-app .apq-hours {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-hours-row {
+    display: flex;
+    font-size: .9rem;
+    gap: 12px;
+    justify-content: space-between;
+    padding: 3px 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-hours-day {
+    color: var(--apq-muted);
+}
+
+/* Modal ------------------------------------------------------------------ */
+
+.appetitqr-app.appetitqr-app .apq-modal,
+.appetitqr-app.appetitqr-app .apq-cart {
+    inset: 0;
+    position: fixed;
+    z-index: 99999;
+}
+
+.appetitqr-app.appetitqr-app .apq-modal[hidden],
+.appetitqr-app.appetitqr-app .apq-cart[hidden] {
+    display: none;
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-backdrop,
+.appetitqr-app.appetitqr-app .apq-cart-backdrop {
+    background: rgba(0, 0, 0, .55);
+    inset: 0;
+    position: absolute;
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-dialog {
+    background: var(--apq-surface);
+    border-radius: var(--apq-radius);
+    left: 50%;
+    max-height: 88vh;
+    max-width: 560px;
+    overflow-y: auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 32px);
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-close,
+.appetitqr-app.appetitqr-app .apq-cart-close {
+    background: rgba(255, 255, 255, .9);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    height: 36px;
+    line-height: 1;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 36px;
+    z-index: 2;
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-media img {
+    aspect-ratio: 16 / 9;
+    border-radius: var(--apq-radius) var(--apq-radius) 0 0;
+    object-fit: cover;
+    width: 100%;
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-title {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-description {
+    color: var(--apq-muted);
+    margin: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-section-title {
+    font-size: .95rem;
+    margin: 0 0 8px;
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-variations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.appetitqr-app.appetitqr-app .apq-variation {
+    background: var(--apq-surface);
+    border: 1px solid var(--apq-border);
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: .875rem;
+    padding: 7px 14px;
+}
+
+.appetitqr-app.appetitqr-app .apq-variation.is-selected {
+    background: var(--apq-primary);
+    border-color: var(--apq-primary);
+    color: var(--apq-on-primary);
+}
+
+.appetitqr-app.appetitqr-app .apq-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-chips li {
+    background: var(--apq-secondary);
+    color: var(--apq-on-secondary);
+    border-radius: 999px;
+    font-size: .78rem;
+    padding: 3px 10px;
+}
+
+/* One chip per value, as on the product page. The previous multi-column grid put
+   each label/value pair in its own cell with space-between, so a value sat flush
+   against the next cell's label and the row read as prose: "Fat 8 Protein 5". */
+.appetitqr-app.appetitqr-app .apq-nutrition {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-nutrition li {
+    background: var(--apq-secondary);
+    border-radius: 999px;
+    color: var(--apq-on-secondary);
+    font-size: .78rem;
+    padding: 3px 10px;
+    white-space: nowrap;
+}
+
+.appetitqr-app.appetitqr-app.apq-scheme-dark .apq-nutrition li {
+    background: rgba(255, 255, 255, .1);
+    color: var(--apq-text);
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-footer {
+    align-items: center;
+    border-top: 1px solid var(--apq-border);
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    padding-top: 14px;
+}
+
+.appetitqr-app.appetitqr-app .apq-modal-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Cart ------------------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app .apq-cart-panel {
+    background: var(--apq-surface);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    height: 100%;
+    margin-left: auto;
+    max-width: 420px;
+    overflow-y: auto;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-title {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-close {
+    position: static;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-item {
+    border-bottom: 1px solid var(--apq-border);
+    display: flex;
+    gap: 12px;
+    padding-bottom: 12px;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-item-info {
+    flex: 1;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-item-name {
+    font-weight: 600;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-item-variation {
+    color: var(--apq-muted);
+    font-size: .85rem;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-qty {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-qty button {
+    background: var(--apq-secondary);
+    color: var(--apq-on-secondary);
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    height: 28px;
+    line-height: 1;
+    width: 28px;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-summary {
+    border-top: 1px solid var(--apq-border);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 12px;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-summary-row {
+    display: flex;
+    font-size: .9rem;
+    justify-content: space-between;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-summary-row.is-total {
+    border-top: 1px solid var(--apq-border);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 6px;
+    padding-top: 8px;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-note {
+    color: var(--apq-muted);
+    font-size: .85rem;
+    margin: 0;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-min-warning {
+    color: #b91c1c;
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.appetitqr-app.appetitqr-app a.apq-cart-action {
+    background: var(--apq-primary);
+    border-radius: 999px;
+    color: var(--apq-on-primary);
+    display: block;
+    font-weight: 600;
+    padding: 12px 18px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.appetitqr-app.appetitqr-app a.apq-cart-action-whatsapp {
+    background: #25d366;
+    color: #fff;
+}
+
+.appetitqr-app.appetitqr-app a.apq-cart-action[aria-disabled="true"] {
+    opacity: .5;
+    pointer-events: none;
+}
+
+/* Dine-in list history --------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app .apq-lists {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.appetitqr-app.appetitqr-app .apq-list-card {
+    border: 1px solid var(--apq-border);
+    border-radius: var(--apq-radius);
+    overflow: hidden;
+}
+
+.appetitqr-app.appetitqr-app .apq-list-header {
+    align-items: center;
+    border-bottom: 1px solid var(--apq-border);
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px;
+}
+
+.appetitqr-app.appetitqr-app .apq-list-name {
+    flex: 1;
+    font-weight: 600;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.appetitqr-app.appetitqr-app .apq-list-badge {
+    background: #dcfce7;
+    border-radius: 999px;
+    color: #166534;
+    flex-shrink: 0;
+    font-size: .72rem;
+    padding: 2px 9px;
+}
+
+.appetitqr-app.appetitqr-app .apq-list-delete {
+    background: none;
+    border: 0;
+    color: var(--apq-muted);
+    cursor: pointer;
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: 2px 6px;
+}
+
+.appetitqr-app.appetitqr-app .apq-list-empty {
+    color: var(--apq-muted);
+    font-size: .875rem;
+    margin: 0;
+    padding: 12px;
+}
+
+.appetitqr-app.appetitqr-app .apq-list-card .apq-cart-item {
+    border-bottom: 1px solid var(--apq-border);
+    padding: 10px 12px;
+}
+
+.appetitqr-app.appetitqr-app .apq-list-total {
+    background: color-mix(in srgb, var(--apq-secondary) 45%, transparent);
+    display: flex;
+    font-size: .9rem;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 10px 12px;
+}
+
+/* Interaction states ------------------------------------------------------
+
+   Every control owns its own hover / focus / active colours. Without these the
+   host theme's `a:hover` (0-1-2) and `button:focus` (0-1-2) are the most
+   specific rules that match, so the menu would revert to the theme's palette
+   the moment a guest touches it — which is the visible half of the "colours get
+   overridden" problem.
+
+   Focus rings use :focus-visible so keyboard users keep an indicator without a
+   ring appearing on every mouse click.
+   ---------------------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app .apq-cart-toggle:hover,
+.appetitqr-app.appetitqr-app .apq-cart-toggle:focus,
+.appetitqr-app.appetitqr-app .apq-cart-toggle:active,
+.appetitqr-app.appetitqr-app .apq-add-to-cart:hover,
+.appetitqr-app.appetitqr-app .apq-add-to-cart:focus,
+.appetitqr-app.appetitqr-app .apq-add-to-cart:active {
+    background: color-mix(in srgb, var(--apq-primary) 88%, #000);
+    color: var(--apq-on-primary);
+}
+
+.appetitqr-app.appetitqr-app a.apq-cart-action:hover,
+.appetitqr-app.appetitqr-app a.apq-cart-action:focus,
+.appetitqr-app.appetitqr-app a.apq-cart-action:active {
+    background: color-mix(in srgb, var(--apq-primary) 88%, #000);
+    color: var(--apq-on-primary);
+    text-decoration: none;
+}
+
+.appetitqr-app.appetitqr-app a.apq-cart-action-whatsapp:hover,
+.appetitqr-app.appetitqr-app a.apq-cart-action-whatsapp:focus,
+.appetitqr-app.appetitqr-app a.apq-cart-action-whatsapp:active {
+    background: #1eb958;
+    color: #fff;
+}
+
+/* The active pill must stay branded even while hovered — this sits after the
+   generic :hover above and carries one more class, so it wins both ways. */
+.appetitqr-app.appetitqr-app a.apq-category-link.is-active:hover,
+.appetitqr-app.appetitqr-app a.apq-category-link.is-active:focus {
+    background: var(--apq-primary);
+    color: var(--apq-on-primary);
+}
+
+.appetitqr-app.appetitqr-app .apq-search-input:hover {
+    border-color: color-mix(in srgb, var(--apq-primary) 45%, var(--apq-border));
+}
+
+.appetitqr-app.appetitqr-app .apq-product:hover .apq-product-title,
+.appetitqr-app.appetitqr-app .apq-product:focus-visible .apq-product-title {
+    color: var(--apq-primary);
+}
+
+.appetitqr-app.appetitqr-app .apq-variation:hover,
+.appetitqr-app.appetitqr-app .apq-variation:focus {
+    border-color: var(--apq-primary);
+    color: var(--apq-text);
+}
+
+/* …but a selected variation keeps the filled treatment. */
+.appetitqr-app.appetitqr-app .apq-variation.is-selected:hover,
+.appetitqr-app.appetitqr-app .apq-variation.is-selected:focus {
+    background: var(--apq-primary);
+    border-color: var(--apq-primary);
+    color: var(--apq-on-primary);
+}
+
+.appetitqr-app.appetitqr-app .apq-search-clear:hover,
+.appetitqr-app.appetitqr-app .apq-search-clear:focus,
+.appetitqr-app.appetitqr-app .apq-list-delete:hover,
+.appetitqr-app.appetitqr-app .apq-list-delete:focus,
+.appetitqr-app.appetitqr-app .apq-modal-close:hover,
+.appetitqr-app.appetitqr-app .apq-modal-close:focus,
+.appetitqr-app.appetitqr-app .apq-cart-close:hover,
+.appetitqr-app.appetitqr-app .apq-cart-close:focus {
+    color: var(--apq-text);
+}
+
+.appetitqr-app.appetitqr-app .apq-cart-qty button:hover,
+.appetitqr-app.appetitqr-app .apq-cart-qty button:focus {
+    background: color-mix(in srgb, var(--apq-secondary) 70%, #000);
+    color: var(--apq-text);
+}
+
+/* One consistent focus ring for every control, replacing whatever outline the
+   theme would otherwise apply. */
+.appetitqr-app.appetitqr-app :is(a, button, input):focus-visible {
+    outline: 2px solid var(--apq-primary);
+    outline-offset: 2px;
+}
+
+/* Template accents ------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app.apq-tpl-modern .apq-product,
+.appetitqr-app.appetitqr-app.apq-tpl-nocturnal .apq-product {
+    border-radius: 6px;
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-bistro .apq-category-title {
+    font-style: italic;
+}
+
+/* Dark palettes -----------------------------------------------------------
+
+   Applied by ThemeService::isDarkScheme() whenever the account's secondary
+   colour is a dark surface — which is how Modern Noir (#0B1C30) and Nocturnal
+   (#131315) use it. Derived from the palette rather than keyed to template ids,
+   so a customised palette gets the same treatment.
+   ---------------------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app.apq-scheme-dark {
+    --apq-surface: color-mix(in srgb, var(--apq-secondary) 88%, #fff);
+    --apq-text: #f4f4f5;
+    --apq-muted: #a1a1aa;
+    --apq-border: rgba(255, 255, 255, .14);
+
+    /* The widget paints its own dark canvas. Without this the menu would be dark
+       cards floating on the host page's white background — the cards would look
+       right while every heading between them sat on white. */
+    background: var(--apq-secondary);
+    border-radius: var(--apq-radius);
+    padding: 20px;
+}
+
+/* The dark scheme pads the widget, which would inset the hero. Pull it back out
+   so the cover runs edge to edge as it does on the real menu, keeping the top
+   corners rounded to match the canvas. */
+.appetitqr-app.appetitqr-app.apq-scheme-dark .apq-hero {
+    border-radius: var(--apq-radius) var(--apq-radius) 0 0;
+    margin: -20px -20px var(--apq-gap);
+    width: auto;
+}
+
+.appetitqr-app.appetitqr-app.apq-scheme-dark .apq-modal-close,
+.appetitqr-app.appetitqr-app.apq-scheme-dark .apq-cart-close {
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+}
+
+/* On a dark scheme the surface already *is* the secondary colour, so tinted
+   chips need to lift away from it rather than blend into it. */
+.appetitqr-app.appetitqr-app.apq-scheme-dark .apq-tag,
+.appetitqr-app.appetitqr-app.apq-scheme-dark .apq-chips li,
+.appetitqr-app.appetitqr-app.apq-scheme-dark .apq-cart-qty button,
+.appetitqr-app.appetitqr-app.apq-scheme-dark .apq-list-total {
+    background: rgba(255, 255, 255, .1);
+    color: var(--apq-text);
+}
+
+.appetitqr-app.appetitqr-app.apq-scheme-dark a.apq-category-link:hover,
+.appetitqr-app.appetitqr-app.apq-scheme-dark a.apq-category-link:focus {
+    background: rgba(255, 255, 255, .12);
+    color: var(--apq-text);
+}
+
+/* The rule above ties with the generic .is-active:hover (both 0-5-1) and would
+   win on source order, dropping the selected pill's brand colour the moment it
+   is hovered. Restate it here with one more class. */
+.appetitqr-app.appetitqr-app.apq-scheme-dark a.apq-category-link.is-active:hover,
+.appetitqr-app.appetitqr-app.apq-scheme-dark a.apq-category-link.is-active:focus {
+    background: var(--apq-primary);
+    color: var(--apq-on-primary);
+}
+
+.appetitqr-app.appetitqr-app.apq-scheme-dark .apq-cart-qty button:hover,
+.appetitqr-app.appetitqr-app.apq-scheme-dark .apq-cart-qty button:focus {
+    background: rgba(255, 255, 255, .2);
+    color: var(--apq-text);
+}
+
+/* Responsive ------------------------------------------------------------- */
+
+@media (min-width: 640px) {
+    .appetitqr-app.appetitqr-app .apq-hero {
+        height: 256px;
+    }
+
+    .appetitqr-app.appetitqr-app.apq-tpl-modern .apq-hero,
+    .appetitqr-app.appetitqr-app.apq-tpl-nocturnal .apq-hero {
+        height: 320px;
+    }
+
+    .appetitqr-app.appetitqr-app .apq-hero-logo {
+        height: 80px;
+        width: 80px;
+    }
+
+    .appetitqr-app.appetitqr-app .apq-hero-title {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .appetitqr-app.appetitqr-app {
+        --apq-gap: 14px;
+    }
+
+    .appetitqr-app.appetitqr-app .apq-products {
+        grid-template-columns: 1fr;
+    }
+
+    .appetitqr-app.appetitqr-app .apq-header-logo {
+        height: 48px;
+        width: 48px;
+    }
+
+    .appetitqr-app.appetitqr-app .apq-cart-panel {
+        max-width: none;
+    }
+
+    .appetitqr-app.appetitqr-app .apq-modal-dialog {
+        max-height: 92vh;
+    }
+}
+
+/* Honour the shortcode's `columns` cap once there is room for it. */
+@media (min-width: 900px) {
+    .appetitqr-app.appetitqr-app .apq-products {
+        grid-template-columns: repeat(var(--apq-columns, 3), minmax(0, 1fr));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .appetitqr-app.appetitqr-app * {
+        transition: none !important;
+    }
+}

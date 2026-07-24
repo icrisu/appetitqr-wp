@@ -1,0 +1,11 @@
+# Composer's install dir only — anchored, so the vendored frontend libraries under
+# app/Views/Frontend/assets/vendor/ (Fuse.js) stay tracked and ship with the plugin.
+/vendor/
+node_modules/
+.DS_Store
+*.log
+composer.lock
+composer.phar
+Prepros Export/
+.idea/
+.vscode/

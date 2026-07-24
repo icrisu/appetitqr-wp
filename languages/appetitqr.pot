@@ -1,0 +1,508 @@
+# Copyright (C) 2026 sakurapixel
+# This file is distributed under the GPL-3.0-only.
+msgid ""
+msgstr ""
+"Project-Id-Version: AppetitQR - Digital QR Menus & Commission-Free Ordering for Restaurants 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/appetitqr\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-23T07:51:08+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: appetitqr\n"
+
+#. Plugin Name of the plugin
+#: appetitqr.php
+msgid "AppetitQR - Digital QR Menus & Commission-Free Ordering for Restaurants"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: appetitqr.php
+msgid "https://www.sakuraleaf.com"
+msgstr ""
+
+#. Description of the plugin
+#: appetitqr.php
+msgid "Embed your AppetitQR digital menu on any WordPress page with a shortcode. Pulls your live menu, theme and colors straight from your AppetitQR account — no commissions, no per-order fees."
+msgstr ""
+
+#. Author of the plugin
+#: appetitqr.php
+msgid "sakurapixel"
+msgstr ""
+
+#. Author URI of the plugin
+#: appetitqr.php
+msgid "https://sakuraleaf.com/support"
+msgstr ""
+
+#: app/Controllers/IntegrationCtrl.php:22
+msgid "Please enter an API key to test."
+msgstr ""
+
+#: app/Controllers/IntegrationCtrl.php:35
+msgid "Connection successful."
+msgstr ""
+
+#: app/Controllers/IntegrationCtrl.php:48
+msgid "Menu cache cleared."
+msgstr ""
+
+#: app/Controllers/IntegrationCtrl.php:57
+msgid "You are not allowed to do this."
+msgstr ""
+
+#: app/Controllers/IntegrationCtrl.php:61
+msgid "Security check failed. Please reload the page."
+msgstr ""
+
+#: app/Helpers/OpeningHoursHelper.php:146
+msgid "Monday"
+msgstr ""
+
+#: app/Helpers/OpeningHoursHelper.php:147
+msgid "Tuesday"
+msgstr ""
+
+#: app/Helpers/OpeningHoursHelper.php:148
+msgid "Wednesday"
+msgstr ""
+
+#: app/Helpers/OpeningHoursHelper.php:149
+msgid "Thursday"
+msgstr ""
+
+#: app/Helpers/OpeningHoursHelper.php:150
+msgid "Friday"
+msgstr ""
+
+#: app/Helpers/OpeningHoursHelper.php:151
+msgid "Saturday"
+msgstr ""
+
+#: app/Helpers/OpeningHoursHelper.php:152
+msgid "Sunday"
+msgstr ""
+
+#: app/Hooks/ActionAdminMenu.php:21
+msgid "AppetitQR Settings"
+msgstr ""
+
+#: app/Hooks/ActionAdminMenu.php:22
+#: app/Views/Admin/Settings/MainSettings.php:15
+#: app/Views/Frontend/MenuView.php:257
+msgid "AppetitQR"
+msgstr ""
+
+#: app/Hooks/ActionEnqueueScripts.php:34
+msgid "Testing…"
+msgstr ""
+
+#: app/Hooks/ActionEnqueueScripts.php:35
+#: app/Views/Admin/Settings/GeneralSettings.php:76
+msgid "Test connection"
+msgstr ""
+
+#: app/Hooks/ActionEnqueueScripts.php:36
+msgid "Clearing…"
+msgstr ""
+
+#: app/Hooks/ActionEnqueueScripts.php:37
+#: app/Views/Admin/Settings/GeneralSettings.php:79
+msgid "Clear menu cache"
+msgstr ""
+
+#: app/Hooks/ActionEnqueueScripts.php:38
+msgid "The request failed. Please try again."
+msgstr ""
+
+#: app/Hooks/ActionEnqueueScripts.php:39
+msgid "Clear every cached menu? The next page view will fetch a fresh copy."
+msgstr ""
+
+#: app/Hooks/ActionEnqueueScripts.php:40
+msgid "Location"
+msgstr ""
+
+#: app/Hooks/ActionEnqueueScripts.php:41
+msgid "Template"
+msgstr ""
+
+#: app/Hooks/ActionEnqueueScripts.php:42
+msgid "Products"
+msgstr ""
+
+#: app/Hooks/ActionEnqueueScripts.php:43
+msgid "Categories"
+msgstr ""
+
+#. translators: %s: formatted minimum order amount
+#: app/Hooks/ActionEnqueueScripts.php:86
+#, php-format
+msgid "Minimum order: %s"
+msgstr ""
+
+#: app/Services/MenuApiService.php:87
+msgid "No API key was provided in the shortcode."
+msgstr ""
+
+#: app/Services/MenuApiService.php:88
+msgid "This API key was rejected. Generate a new one in your AppetitQR dashboard and update the shortcode."
+msgstr ""
+
+#: app/Services/MenuApiService.php:89
+msgid "The AppetitQR subscription for this location is not active."
+msgstr ""
+
+#: app/Services/MenuApiService.php:90
+msgid "This location no longer exists in AppetitQR."
+msgstr ""
+
+#: app/Services/MenuApiService.php:91
+msgid "This location is currently deactivated in AppetitQR."
+msgstr ""
+
+#: app/Services/MenuApiService.php:92
+msgid "The AppetitQR API returned a format this plugin version does not support. Please update the plugin."
+msgstr ""
+
+#: app/Services/MenuApiService.php:94
+msgid "The AppetitQR API returned an unexpected response."
+msgstr ""
+
+#: app/Services/MenuApiService.php:95
+msgid "Could not reach the AppetitQR API. Check the API URL in the plugin settings."
+msgstr ""
+
+#: app/Services/MenuApiService.php:96
+msgid "The menu could not be loaded."
+msgstr ""
+
+#: app/Views/Admin/Settings/BaseView.php:18
+msgid "Save"
+msgstr ""
+
+#: app/Views/Admin/Settings/GeneralSettings.php:19
+msgid "Generate an API key in your AppetitQR dashboard under Locations → your location → Settings → Integrations, then paste it into the shortcode on any page."
+msgstr ""
+
+#: app/Views/Admin/Settings/GeneralSettings.php:24
+msgid "AppetitQR API URL"
+msgstr ""
+
+#. translators: %s: default AppetitQR API URL
+#: app/Views/Admin/Settings/GeneralSettings.php:37
+#, php-format
+msgid "Leave empty to use %s. Change it only to point at a staging or self-hosted AppetitQR instance."
+msgstr ""
+
+#: app/Views/Admin/Settings/GeneralSettings.php:45
+msgid "Menu cache lifetime (seconds)"
+msgstr ""
+
+#: app/Views/Admin/Settings/GeneralSettings.php:56
+msgid "How long a fetched menu is reused before the plugin calls the API again. Minimum 60 seconds; defaults to 900 (15 minutes)."
+msgstr ""
+
+#: app/Views/Admin/Settings/GeneralSettings.php:67
+msgid "Test a connection"
+msgstr ""
+
+#: app/Views/Admin/Settings/GeneralSettings.php:68
+msgid "Check an API key against the AppetitQR API before you publish the shortcode. Nothing is saved."
+msgstr ""
+
+#: app/Views/Admin/Settings/GeneralSettings.php:71
+msgid "API key"
+msgstr ""
+
+#: app/Views/Admin/Settings/MainSettings.php:19
+msgid "General"
+msgstr ""
+
+#: app/Views/Admin/Settings/MainSettings.php:22
+msgid "Shortcodes"
+msgstr ""
+
+#: app/Views/Admin/Settings/MainSettings.php:25
+#: app/Views/Admin/Settings/MainSettings.php:39
+msgid "Documentation"
+msgstr ""
+
+#: app/Views/Admin/Settings/MainSettings.php:41
+msgid "How to connect a location:"
+msgstr ""
+
+#: app/Views/Admin/Settings/MainSettings.php:43
+msgid "Open your AppetitQR dashboard and go to Locations → your location → Settings."
+msgstr ""
+
+#: app/Views/Admin/Settings/MainSettings.php:44
+msgid "In the Integrations card, click \"Generate API Key\"."
+msgstr ""
+
+#: app/Views/Admin/Settings/MainSettings.php:45
+msgid "Copy the shortcode shown under the key."
+msgstr ""
+
+#: app/Views/Admin/Settings/MainSettings.php:46
+msgid "Paste it into any WordPress page or post and publish."
+msgstr ""
+
+#: app/Views/Admin/Settings/MainSettings.php:50
+msgid "Menu changes made in AppetitQR appear on your WordPress page once the cache expires. Use \"Clear menu cache\" on the General tab to see them immediately."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:9
+msgid "Required. The key generated for this location in the AppetitQR dashboard."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:10
+msgid "Menu language. Defaults to the account's default language. Ignored when the account has no such language."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:11
+msgid "Set to 0 to hide the search field."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:12
+msgid "Set to 0 to hide the restaurant info block (about, address, phone, hours)."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:13
+msgid "Set to 0 to hide the cart entirely. Also depends on the location's ordering settings in AppetitQR."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:14
+msgid "Set to 0 to render a compact, text-only menu without product images."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:15
+msgid "Maximum number of product columns on wide screens (1–4)."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:16
+msgid "Set to true for a dine-in (table QR) page: guests build a wishlist to show their server and all ordering is disabled."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:21
+msgid "Embedding a menu"
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:22
+msgid "Paste this shortcode into any page or post. Replace the key with the one from your AppetitQR dashboard:"
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:27
+msgid "All attributes"
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:31
+msgid "Attribute"
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:32
+msgid "Default"
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:33
+msgid "Description"
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:49
+msgid "Examples"
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:60
+msgid "Dine-in mode"
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:61
+msgid "With dinein=\"true\" the menu behaves like a table QR code: guests save items to a wishlist they show their server, and every ordering feature is switched off — no phone or WhatsApp ordering, no delivery cost, no discounts and no minimum order. Put it on a separate page from your ordering menu and point your table QR codes at it."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:62
+msgid "The list is still controlled by the location: dine-in must have \"allow temporary cart\" enabled in your AppetitQR dashboard, otherwise no list appears."
+msgstr ""
+
+#: app/Views/Admin/Settings/Shortcodes.php:67
+msgid "The menu is fetched on the server and cached, so it appears in the page source and is indexable. Ordering, search and the product popup are added on top with JavaScript."
+msgstr ""
+
+#: app/Views/Frontend/MenuView.php:45
+msgid "Add your AppetitQR API key to the shortcode: [wp_appetitqr api_key=\"…\"]"
+msgstr ""
+
+#: app/Views/Frontend/MenuView.php:114
+msgid "AppetitQR: showing a cached copy of this menu — the API could not be reached."
+msgstr ""
+
+#: app/Views/Frontend/MenuView.php:129
+#: app/Views/Frontend/Partials/CartPanel.php:51
+msgid "My List"
+msgstr ""
+
+#: app/Views/Frontend/MenuView.php:130
+#: app/Views/Frontend/Partials/CartPanel.php:110
+msgid "Cart"
+msgstr ""
+
+#: app/Views/Frontend/MenuView.php:140
+msgid "No products found."
+msgstr ""
+
+#: app/Views/Frontend/MenuView.php:146
+msgid "No items available."
+msgstr ""
+
+#: app/Views/Frontend/MenuView.php:226
+msgid "Other"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:37
+#: app/Views/Frontend/Partials/CartPanel.php:95
+msgid "Qty:"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:38
+#: app/Views/Frontend/Partials/CartPanel.php:100
+msgid "Total (estimated)"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:39
+msgid "Current"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:40
+msgid "Empty list"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:41
+#: app/Views/Frontend/Partials/CartPanel.php:68
+#: app/Views/Frontend/Partials/CartPanel.php:101
+#: app/Views/Frontend/Partials/CartPanel.php:123
+msgid "Your list is empty. Start adding items!"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:42
+msgid "Delete list"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:57
+#: app/Views/Frontend/Partials/CartPanel.php:116
+#: app/Views/Frontend/Partials/ProductModal.php:24
+msgid "Close"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:62
+msgid "Build a wishlist of items you'd like to order. Share it with your server!"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:96
+msgid "Subtotal"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:97
+msgid "Shipping"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:98
+msgid "FREE"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:99
+msgid "Discount"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:137
+msgid "Phone order"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:143
+msgid "WhatsApp order"
+msgstr ""
+
+#: app/Views/Frontend/Partials/CartPanel.php:149
+msgid "Ordering is not enabled for this location. Your list is saved on this device only."
+msgstr ""
+
+#: app/Views/Frontend/Partials/CategoryNav.php:16
+msgid "Menu categories"
+msgstr ""
+
+#: app/Views/Frontend/Partials/InfoBlock.php:66
+msgid "About"
+msgstr ""
+
+#: app/Views/Frontend/Partials/InfoBlock.php:74
+msgid "Address"
+msgstr ""
+
+#: app/Views/Frontend/Partials/InfoBlock.php:79
+msgid "Phone"
+msgstr ""
+
+#: app/Views/Frontend/Partials/InfoBlock.php:92
+msgid "Business Hours"
+msgstr ""
+
+#: app/Views/Frontend/Partials/InfoBlock.php:95
+msgid "Open now"
+msgstr ""
+
+#: app/Views/Frontend/Partials/InfoBlock.php:95
+#: app/Views/Frontend/Partials/InfoBlock.php:105
+msgid "Closed"
+msgstr ""
+
+#: app/Views/Frontend/Partials/ProductCard.php:57
+#: app/Views/Frontend/Partials/ProductCard.php:94
+msgid "Unavailable"
+msgstr ""
+
+#: app/Views/Frontend/Partials/ProductCard.php:89
+#: app/Views/Frontend/Partials/ProductModal.php:72
+msgid "Save to list"
+msgstr ""
+
+#: app/Views/Frontend/Partials/ProductCard.php:90
+#: app/Views/Frontend/Partials/ProductModal.php:73
+msgid "Add to cart"
+msgstr ""
+
+#. translators: %s: lowest price across a product's variations
+#: app/Views/Frontend/Partials/ProductCard.php:138
+#, php-format
+msgid "from %s"
+msgstr ""
+
+#: app/Views/Frontend/Partials/ProductModal.php:35
+msgid "Select variant"
+msgstr ""
+
+#: app/Views/Frontend/Partials/ProductModal.php:42
+msgid "Allergens"
+msgstr ""
+
+#: app/Views/Frontend/Partials/ProductModal.php:49
+msgid "Dietary"
+msgstr ""
+
+#: app/Views/Frontend/Partials/ProductModal.php:56
+msgid "Nutritional Values"
+msgstr ""
+
+#: app/Views/Frontend/Partials/ProductModal.php:63
+msgid "Additional info"
+msgstr ""
+
+#: app/Views/Frontend/Partials/SearchBar.php:10
+msgid "Search…"
+msgstr ""
+
+#: app/Views/Frontend/Partials/SearchBar.php:24
+msgid "Clear search"
+msgstr ""

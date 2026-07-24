@@ -1,0 +1,9 @@
+{
+    "description": "AppetitQR - Digital QR Menus & Commission-Free Ordering for Restaurants",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "AppetitQR\\": "app/"
+        }
+    }
+}
