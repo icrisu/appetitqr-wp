@@ -18,8 +18,8 @@ class ActionAdminMenu implements IHook {
         $mainSettingsPageSlug = Config::getInstance()->getSetting('main_settings_page_slug', '');
 
         add_menu_page(
-            esc_html__('AppetitQR Settings', 'appetitqr'),
-            esc_html__('AppetitQR', 'appetitqr'),
+            esc_html__('AppetitQR Settings', 'sakura-pixel-menu-embed-for-appetitqr'),
+            esc_html__('AppetitQR', 'sakura-pixel-menu-embed-for-appetitqr'),
             'manage_options',
             $mainSettingsPageSlug,
             [$mainSettings, 'render'],

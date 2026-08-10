@@ -42,7 +42,7 @@ class MenuView {
         $apiKey = sanitize_text_field($atts['api_key']);
 
         if ($apiKey === '') {
-            return self::renderNotice(esc_html__('Add your AppetitQR API key to the shortcode: [wp_appetitqr api_key="…"]', 'appetitqr'));
+            return self::renderNotice(esc_html__('Add your AppetitQR API key to the shortcode: [wp_appetitqr api_key="…"]', 'sakura-pixel-menu-embed-for-appetitqr'));
         }
 
         $result = MenuCacheService::getMenu($apiKey);
@@ -112,7 +112,7 @@ class MenuView {
                 <?php // Served from the stale copy because the API was unreachable. Only editors see why. ?>
                 <?php if (current_user_can('edit_posts')): ?>
                     <div class="apq-admin-notice">
-                        <?php esc_html_e('AppetitQR: showing a cached copy of this menu — the API could not be reached.', 'appetitqr'); ?>
+                        <?php esc_html_e('AppetitQR: showing a cached copy of this menu — the API could not be reached.', 'sakura-pixel-menu-embed-for-appetitqr'); ?>
                     </div>
                 <?php endif; ?>
             <?php endif; ?>
@@ -127,8 +127,8 @@ class MenuView {
                     <button type="button" class="apq-cart-toggle" data-apq-open-cart aria-haspopup="dialog">
                         <span class="apq-cart-toggle-label">
                             <?php echo esc_html($isDineIn
-                                ? $labels->get('my_list_title', __('My List', 'appetitqr'))
-                                : $labels->get('cart', __('Cart', 'appetitqr'))); ?>
+                                ? $labels->get('my_list_title', __('My List', 'sakura-pixel-menu-embed-for-appetitqr'))
+                                : $labels->get('cart', __('Cart', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </span>
                         <span class="apq-cart-count" data-apq-cart-count hidden>0</span>
                     </button>
@@ -138,13 +138,13 @@ class MenuView {
             <?php CategoryNav::render($productsByCategory, $instanceId); ?>
 
             <div class="apq-empty-search" data-apq-empty hidden>
-                <?php echo esc_html($labels->get('no_products_found', __('No products found.', 'appetitqr'))); ?>
+                <?php echo esc_html($labels->get('no_products_found', __('No products found.', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
             </div>
 
             <div class="apq-menu" data-apq-menu>
                 <?php if (empty($productsByCategory)): ?>
                     <p class="apq-empty">
-                        <?php echo esc_html($labels->get('no_items_available', __('No items available.', 'appetitqr'))); ?>
+                        <?php echo esc_html($labels->get('no_items_available', __('No items available.', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                     </p>
                 <?php else: ?>
                     <?php foreach ($productsByCategory as $group): ?>
@@ -224,7 +224,7 @@ class MenuView {
         if (!empty($uncategorized)) {
             $groups[] = [
                 'id'       => 'uncategorized',
-                'name'     => __('Other', 'appetitqr'),
+                'name'     => __('Other', 'sakura-pixel-menu-embed-for-appetitqr'),
                 'products' => $uncategorized,
             ];
         }
@@ -255,7 +255,7 @@ class MenuView {
         }
 
         return '<div class="appetitqr-app apq-notice">'
-            . '<strong>' . esc_html__('AppetitQR', 'appetitqr') . ':</strong> '
+            . '<strong>' . esc_html__('AppetitQR', 'sakura-pixel-menu-embed-for-appetitqr') . ':</strong> '
             . esc_html($message)
             . '</div>';
     }

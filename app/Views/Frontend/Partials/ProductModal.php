@@ -21,7 +21,7 @@ class ProductModal {
                     type="button"
                     class="apq-modal-close"
                     data-apq-modal-close
-                    aria-label="<?php echo esc_attr($labels->get('close', __('Close', 'appetitqr'))); ?>"
+                    aria-label="<?php echo esc_attr($labels->get('close', __('Close', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>"
                 >&times;</button>
 
                 <div class="apq-modal-media" data-apq-modal-media></div>
@@ -32,35 +32,35 @@ class ProductModal {
 
                     <div class="apq-modal-section" data-apq-modal-variations-wrap hidden>
                         <h4 class="apq-modal-section-title">
-                            <?php echo esc_html($labels->get('select_variant', __('Select variant', 'appetitqr'))); ?>
+                            <?php echo esc_html($labels->get('select_variant', __('Select variant', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </h4>
                         <div class="apq-modal-variations" data-apq-modal-variations></div>
                     </div>
 
                     <div class="apq-modal-section" data-apq-modal-allergens-wrap hidden>
                         <h4 class="apq-modal-section-title">
-                            <?php echo esc_html($labels->get('allergens', __('Allergens', 'appetitqr'))); ?>
+                            <?php echo esc_html($labels->get('allergens', __('Allergens', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </h4>
                         <ul class="apq-chips" data-apq-modal-allergens></ul>
                     </div>
 
                     <div class="apq-modal-section" data-apq-modal-dietary-wrap hidden>
                         <h4 class="apq-modal-section-title">
-                            <?php echo esc_html($labels->get('dietary', __('Dietary', 'appetitqr'))); ?>
+                            <?php echo esc_html($labels->get('dietary', __('Dietary', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </h4>
                         <ul class="apq-chips" data-apq-modal-dietary></ul>
                     </div>
 
                     <div class="apq-modal-section" data-apq-modal-nutrition-wrap hidden>
                         <h4 class="apq-modal-section-title">
-                            <?php echo esc_html($labels->get('nutritional_values', __('Nutritional Values', 'appetitqr'))); ?>
+                            <?php echo esc_html($labels->get('nutritional_values', __('Nutritional Values', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </h4>
                         <ul class="apq-nutrition" data-apq-modal-nutrition></ul>
                     </div>
 
                     <div class="apq-modal-section" data-apq-modal-additional-wrap hidden>
                         <h4 class="apq-modal-section-title">
-                            <?php echo esc_html($labels->get('additional_info', __('Additional info', 'appetitqr'))); ?>
+                            <?php echo esc_html($labels->get('additional_info', __('Additional info', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </h4>
                         <p data-apq-modal-additional></p>
                     </div>
@@ -69,8 +69,8 @@ class ProductModal {
                         <span class="apq-modal-price" data-apq-modal-price></span>
                         <button type="button" class="apq-add-to-cart" data-apq-modal-add hidden>
                             <?php echo esc_html($isDineIn
-                                ? $labels->get('save_to_list', __('Save to list', 'appetitqr'))
-                                : $labels->get('add_to_cart', __('Add to cart', 'appetitqr'))); ?>
+                                ? $labels->get('save_to_list', __('Save to list', 'sakura-pixel-menu-embed-for-appetitqr'))
+                                : $labels->get('add_to_cart', __('Add to cart', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </button>
                     </div>
                 </div>

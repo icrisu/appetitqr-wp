@@ -7,6 +7,6 @@ class BaseView {
     function __construct(protected array $viewData = []) {}
 
     protected function renderSettingsSaveBtn(): void {
-        submit_button(__('Save', 'appetitqr'));
+        submit_button(__('Save', 'sakura-pixel-menu-embed-for-appetitqr'));
     }
 }

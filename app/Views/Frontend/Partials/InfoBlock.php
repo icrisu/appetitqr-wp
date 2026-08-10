@@ -133,7 +133,7 @@ class InfoBlock {
         <section class="apq-info">
             <?php if ($about !== ''): ?>
                 <div class="apq-info-block">
-                    <h3 class="apq-info-title"><?php echo esc_html($labels->get('about', __('About', 'appetitqr'))); ?></h3>
+                    <h3 class="apq-info-title"><?php echo esc_html($labels->get('about', __('About', 'sakura-pixel-menu-embed-for-appetitqr'))); ?></h3>
                     <div class="apq-info-about"><?php echo wp_kses_post(wpautop($about)); ?></div>
                 </div>
             <?php endif; ?>
@@ -141,12 +141,12 @@ class InfoBlock {
             <?php if ($showAddress || $showPhone): ?>
                 <div class="apq-info-block">
                     <?php if ($showAddress): ?>
-                        <h3 class="apq-info-title"><?php echo esc_html($labels->get('address', __('Address', 'appetitqr'))); ?></h3>
+                        <h3 class="apq-info-title"><?php echo esc_html($labels->get('address', __('Address', 'sakura-pixel-menu-embed-for-appetitqr'))); ?></h3>
                         <p class="apq-info-line"><?php echo esc_html($location['address']); ?></p>
                     <?php endif; ?>
 
                     <?php if ($showPhone): ?>
-                        <h3 class="apq-info-title"><?php echo esc_html($labels->get('phone', __('Phone', 'appetitqr'))); ?></h3>
+                        <h3 class="apq-info-title"><?php echo esc_html($labels->get('phone', __('Phone', 'sakura-pixel-menu-embed-for-appetitqr'))); ?></h3>
                         <p class="apq-info-line">
                             <a href="tel:<?php echo esc_attr(Sanitizer::sanitizePhone($location['phoneNumber'])); ?>">
                                 <?php echo esc_html($location['phoneNumber']); ?>
@@ -159,10 +159,10 @@ class InfoBlock {
             <?php if (!empty($schedule)): ?>
                 <div class="apq-info-block">
                     <h3 class="apq-info-title">
-                        <?php echo esc_html($labels->get('business_hours', __('Business Hours', 'appetitqr'))); ?>
+                        <?php echo esc_html($labels->get('business_hours', __('Business Hours', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         <?php if ($isOpen !== null): ?>
                             <span class="apq-open-badge<?php echo $isOpen ? ' is-open' : ''; ?>">
-                                <?php echo $isOpen ? esc_html__('Open now', 'appetitqr') : esc_html__('Closed', 'appetitqr'); ?>
+                                <?php echo $isOpen ? esc_html__('Open now', 'sakura-pixel-menu-embed-for-appetitqr') : esc_html__('Closed', 'sakura-pixel-menu-embed-for-appetitqr'); ?>
                             </span>
                         <?php endif; ?>
                     </h3>
@@ -172,7 +172,7 @@ class InfoBlock {
                                 <span class="apq-hours-day"><?php echo esc_html(OpeningHoursHelper::dayLabel($day['key'])); ?></span>
                                 <span class="apq-hours-times">
                                     <?php if (!$day['enabled'] || empty($day['intervals'])): ?>
-                                        <?php esc_html_e('Closed', 'appetitqr'); ?>
+                                        <?php esc_html_e('Closed', 'sakura-pixel-menu-embed-for-appetitqr'); ?>
                                     <?php else: ?>
                                         <?php
                                         $parts = [];

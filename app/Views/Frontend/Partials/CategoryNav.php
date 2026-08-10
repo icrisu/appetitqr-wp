@@ -13,7 +13,7 @@ class CategoryNav {
             return;
         }
         ?>
-        <nav class="apq-category-nav" data-apq-category-nav aria-label="<?php esc_attr_e('Menu categories', 'appetitqr'); ?>">
+        <nav class="apq-category-nav" data-apq-category-nav aria-label="<?php esc_attr_e('Menu categories', 'sakura-pixel-menu-embed-for-appetitqr'); ?>">
             <ul class="apq-category-nav-list">
                 <?php foreach ($groups as $index => $group): ?>
                     <li>

@@ -34,12 +34,12 @@ class CartPanel {
             'mode'         => 'dinein',
             'locationName' => $location['name'] ?? '',
             'labels'       => [
-                'quantity'    => $labels->get('quantity_label', __('Qty:', 'appetitqr')),
-                'total'       => $labels->get('total_estimated', __('Total (estimated)', 'appetitqr')),
-                'currentList' => $labels->get('current_list', __('Current', 'appetitqr')),
-                'emptyList'   => $labels->get('empty_list', __('Empty list', 'appetitqr')),
-                'empty'       => $labels->get('list_empty', __('Your list is empty. Start adding items!', 'appetitqr')),
-                'deleteList'  => __('Delete list', 'appetitqr'),
+                'quantity'    => $labels->get('quantity_label', __('Qty:', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'total'       => $labels->get('total_estimated', __('Total (estimated)', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'currentList' => $labels->get('current_list', __('Current', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'emptyList'   => $labels->get('empty_list', __('Empty list', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'empty'       => $labels->get('list_empty', __('Your list is empty. Start adding items!', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'deleteList'  => __('Delete list', 'sakura-pixel-menu-embed-for-appetitqr'),
             ],
         ];
         ?>
@@ -48,24 +48,24 @@ class CartPanel {
             <aside class="apq-cart-panel" role="dialog" aria-modal="true" aria-labelledby="apq-cart-title">
                 <header class="apq-cart-header">
                     <h3 class="apq-cart-title" id="apq-cart-title">
-                        <?php echo esc_html($labels->get('my_list_title', __('My List', 'appetitqr'))); ?>
+                        <?php echo esc_html($labels->get('my_list_title', __('My List', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                     </h3>
                     <button
                         type="button"
                         class="apq-cart-close"
                         data-apq-cart-close
-                        aria-label="<?php echo esc_attr($labels->get('close', __('Close', 'appetitqr'))); ?>"
+                        aria-label="<?php echo esc_attr($labels->get('close', __('Close', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>"
                     >&times;</button>
                 </header>
 
                 <p class="apq-cart-note">
-                    <?php echo esc_html($labels->get('wishlist_info', __("Build a wishlist of items you'd like to order. Share it with your server!", 'appetitqr'))); ?>
+                    <?php echo esc_html($labels->get('wishlist_info', __("Build a wishlist of items you'd like to order. Share it with your server!", 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                 </p>
 
                 <div class="apq-lists" data-apq-lists></div>
 
                 <p class="apq-cart-empty" data-apq-cart-empty>
-                    <?php echo esc_html($labels->get('list_empty', __('Your list is empty. Start adding items!', 'appetitqr'))); ?>
+                    <?php echo esc_html($labels->get('list_empty', __('Your list is empty. Start adding items!', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                 </p>
             </aside>
         </div>
@@ -92,13 +92,13 @@ class CartPanel {
             'whatsapp'      => $allowWhatsApp ? Sanitizer::sanitizePhone($location['orderWhatsAppNumber']) : '',
             'locationName'  => $location['name'] ?? '',
             'labels'        => [
-                'quantity' => $labels->get('quantity_label', __('Qty:', 'appetitqr')),
-                'subtotal' => $labels->get('subtotal', __('Subtotal', 'appetitqr')),
-                'shipping' => $labels->get('shipping', __('Shipping', 'appetitqr')),
-                'free'     => $labels->get('shipping_free', __('FREE', 'appetitqr')),
-                'discount' => $labels->get('discount', __('Discount', 'appetitqr')),
-                'total'    => $labels->get('total_estimated', __('Total (estimated)', 'appetitqr')),
-                'empty'    => $labels->get('list_empty', __('Your list is empty. Start adding items!', 'appetitqr')),
+                'quantity' => $labels->get('quantity_label', __('Qty:', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'subtotal' => $labels->get('subtotal', __('Subtotal', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'shipping' => $labels->get('shipping', __('Shipping', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'free'     => $labels->get('shipping_free', __('FREE', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'discount' => $labels->get('discount', __('Discount', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'total'    => $labels->get('total_estimated', __('Total (estimated)', 'sakura-pixel-menu-embed-for-appetitqr')),
+                'empty'    => $labels->get('list_empty', __('Your list is empty. Start adding items!', 'sakura-pixel-menu-embed-for-appetitqr')),
             ],
         ];
         ?>
@@ -107,20 +107,20 @@ class CartPanel {
             <aside class="apq-cart-panel" role="dialog" aria-modal="true" aria-labelledby="apq-cart-title">
                 <header class="apq-cart-header">
                     <h3 class="apq-cart-title" id="apq-cart-title">
-                        <?php echo esc_html($labels->get('cart', __('Cart', 'appetitqr'))); ?>
+                        <?php echo esc_html($labels->get('cart', __('Cart', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                     </h3>
                     <button
                         type="button"
                         class="apq-cart-close"
                         data-apq-cart-close
-                        aria-label="<?php echo esc_attr($labels->get('close', __('Close', 'appetitqr'))); ?>"
+                        aria-label="<?php echo esc_attr($labels->get('close', __('Close', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>"
                     >&times;</button>
                 </header>
 
                 <div class="apq-cart-items" data-apq-cart-items></div>
 
                 <p class="apq-cart-empty" data-apq-cart-empty>
-                    <?php echo esc_html($labels->get('list_empty', __('Your list is empty. Start adding items!', 'appetitqr'))); ?>
+                    <?php echo esc_html($labels->get('list_empty', __('Your list is empty. Start adding items!', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                 </p>
 
                 <div class="apq-cart-summary" data-apq-cart-summary hidden></div>
@@ -134,19 +134,19 @@ class CartPanel {
                 <footer class="apq-cart-actions">
                     <?php if ($allowPhone): ?>
                         <a class="apq-cart-action apq-cart-action-phone" data-apq-order-phone href="tel:<?php echo esc_attr(Sanitizer::sanitizePhone($location['orderPhoneNumber'])); ?>">
-                            <?php echo esc_html($labels->get('phone_order', __('Phone order', 'appetitqr'))); ?>
+                            <?php echo esc_html($labels->get('phone_order', __('Phone order', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </a>
                     <?php endif; ?>
 
                     <?php if ($allowWhatsApp): ?>
                         <a class="apq-cart-action apq-cart-action-whatsapp" data-apq-order-whatsapp href="#" target="_blank" rel="noopener noreferrer">
-                            <?php echo esc_html($labels->get('whatsapp_order', __('WhatsApp order', 'appetitqr'))); ?>
+                            <?php echo esc_html($labels->get('whatsapp_order', __('WhatsApp order', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </a>
                     <?php endif; ?>
 
                     <?php if (!$allowPhone && !$allowWhatsApp): ?>
                         <p class="apq-cart-note">
-                            <?php esc_html_e('Ordering is not enabled for this location. Your list is saved on this device only.', 'appetitqr'); ?>
+                            <?php esc_html_e('Ordering is not enabled for this location. Your list is saved on this device only.', 'sakura-pixel-menu-embed-for-appetitqr'); ?>
                         </p>
                     <?php endif; ?>
                 </footer>

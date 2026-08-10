@@ -143,13 +143,13 @@ class OpeningHoursHelper {
 
     static function dayLabel(string $key): string {
         return match ($key) {
-            'mon'   => esc_html__('Monday', 'appetitqr'),
-            'tue'   => esc_html__('Tuesday', 'appetitqr'),
-            'wed'   => esc_html__('Wednesday', 'appetitqr'),
-            'thu'   => esc_html__('Thursday', 'appetitqr'),
-            'fri'   => esc_html__('Friday', 'appetitqr'),
-            'sat'   => esc_html__('Saturday', 'appetitqr'),
-            'sun'   => esc_html__('Sunday', 'appetitqr'),
+            'mon'   => esc_html__('Monday', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'tue'   => esc_html__('Tuesday', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'wed'   => esc_html__('Wednesday', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'thu'   => esc_html__('Thursday', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'fri'   => esc_html__('Friday', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'sat'   => esc_html__('Saturday', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'sun'   => esc_html__('Sunday', 'sakura-pixel-menu-embed-for-appetitqr'),
             default => '',
         };
     }

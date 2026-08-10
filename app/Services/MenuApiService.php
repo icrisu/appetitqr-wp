@@ -80,16 +80,16 @@ class MenuApiService {
      */
     static function describeError(?string $error): string {
         return match ($error) {
-            'missing_api_key'       => esc_html__('No API key was provided in the shortcode.', 'appetitqr'),
-            'invalid_api_key'       => esc_html__('This API key was rejected. Generate a new one in your AppetitQR dashboard and update the shortcode.', 'appetitqr'),
-            'subscription_required' => esc_html__('The AppetitQR subscription for this location is not active.', 'appetitqr'),
-            'not_found'             => esc_html__('This location no longer exists in AppetitQR.', 'appetitqr'),
-            'location_unavailable'  => esc_html__('This location is currently deactivated in AppetitQR.', 'appetitqr'),
-            'unsupported_version'   => esc_html__('The AppetitQR API returned a format this plugin version does not support. Please update the plugin.', 'appetitqr'),
+            'missing_api_key'       => esc_html__('No API key was provided in the shortcode.', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'invalid_api_key'       => esc_html__('This API key was rejected. Generate a new one in your AppetitQR dashboard and update the shortcode.', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'subscription_required' => esc_html__('The AppetitQR subscription for this location is not active.', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'not_found'             => esc_html__('This location no longer exists in AppetitQR.', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'location_unavailable'  => esc_html__('This location is currently deactivated in AppetitQR.', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'unsupported_version'   => esc_html__('The AppetitQR API returned a format this plugin version does not support. Please update the plugin.', 'sakura-pixel-menu-embed-for-appetitqr'),
             'invalid_json',
-            'invalid_payload'       => esc_html__('The AppetitQR API returned an unexpected response.', 'appetitqr'),
-            'request_failed'        => esc_html__('Could not reach the AppetitQR API. Check the API URL in the plugin settings.', 'appetitqr'),
-            default                 => esc_html__('The menu could not be loaded.', 'appetitqr'),
+            'invalid_payload'       => esc_html__('The AppetitQR API returned an unexpected response.', 'sakura-pixel-menu-embed-for-appetitqr'),
+            'request_failed'        => esc_html__('Could not reach the AppetitQR API. Check the API URL in the plugin settings.', 'sakura-pixel-menu-embed-for-appetitqr'),
+            default                 => esc_html__('The menu could not be loaded.', 'sakura-pixel-menu-embed-for-appetitqr'),
         };
     }
 }

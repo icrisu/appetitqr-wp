@@ -50,7 +50,7 @@ per-order fee and no payment processing in between.
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/appetitqr` and activate it.
+1. Upload the plugin to `/wp-content/plugins/sakura-pixel-menu-embed-for-appetitqr` and activate it.
 2. In your AppetitQR dashboard go to **Locations → your location → Settings → Integrations**.
 3. Click **Generate API Key** and copy the shortcode shown underneath it.
 4. Paste the shortcode into any WordPress page or post.

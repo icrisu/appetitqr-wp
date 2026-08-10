@@ -30,16 +30,16 @@ class ActionEnqueueScripts implements IHook {
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce'    => wp_create_nonce(IntegrationCtrl::NONCE_ACTION),
             'labels'   => [
-                'testing'       => esc_html__('Testing…', 'appetitqr'),
-                'testConnection'=> esc_html__('Test connection', 'appetitqr'),
-                'clearing'      => esc_html__('Clearing…', 'appetitqr'),
-                'clearCache'    => esc_html__('Clear menu cache', 'appetitqr'),
-                'requestFailed' => esc_html__('The request failed. Please try again.', 'appetitqr'),
-                'confirmClear'  => esc_html__('Clear every cached menu? The next page view will fetch a fresh copy.', 'appetitqr'),
-                'location'      => esc_html__('Location', 'appetitqr'),
-                'template'      => esc_html__('Template', 'appetitqr'),
-                'products'      => esc_html__('Products', 'appetitqr'),
-                'categories'    => esc_html__('Categories', 'appetitqr'),
+                'testing'       => esc_html__('Testing…', 'sakura-pixel-menu-embed-for-appetitqr'),
+                'testConnection'=> esc_html__('Test connection', 'sakura-pixel-menu-embed-for-appetitqr'),
+                'clearing'      => esc_html__('Clearing…', 'sakura-pixel-menu-embed-for-appetitqr'),
+                'clearCache'    => esc_html__('Clear menu cache', 'sakura-pixel-menu-embed-for-appetitqr'),
+                'requestFailed' => esc_html__('The request failed. Please try again.', 'sakura-pixel-menu-embed-for-appetitqr'),
+                'confirmClear'  => esc_html__('Clear every cached menu? The next page view will fetch a fresh copy.', 'sakura-pixel-menu-embed-for-appetitqr'),
+                'location'      => esc_html__('Location', 'sakura-pixel-menu-embed-for-appetitqr'),
+                'template'      => esc_html__('Template', 'sakura-pixel-menu-embed-for-appetitqr'),
+                'products'      => esc_html__('Products', 'sakura-pixel-menu-embed-for-appetitqr'),
+                'categories'    => esc_html__('Categories', 'sakura-pixel-menu-embed-for-appetitqr'),
             ],
         ]);
 
@@ -68,7 +68,7 @@ class ActionEnqueueScripts implements IHook {
         wp_localize_script('appetitqr-menu', 'AppetitQRMenu', [
             'labels' => [
                 /* translators: %s: formatted minimum order amount */
-                'minimumOrder' => esc_html__('Minimum order: %s', 'appetitqr'),
+                'minimumOrder' => esc_html__('Minimum order: %s', 'sakura-pixel-menu-embed-for-appetitqr'),
             ],
         ]);
     }

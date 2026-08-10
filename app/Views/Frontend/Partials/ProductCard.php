@@ -65,7 +65,7 @@ class ProductCard {
                     </div>
                     <?php if (!$isAvailable): ?>
                         <span class="apq-badge apq-badge-unavailable">
-                            <?php echo esc_html($labels->get('unavailable', __('Unavailable', 'appetitqr'))); ?>
+                            <?php echo esc_html($labels->get('unavailable', __('Unavailable', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </span>
                     <?php endif; ?>
                 </div>
@@ -95,12 +95,12 @@ class ProductCard {
                             data-apq-variation="<?php echo esc_attr($variations[0]['id'] ?? ''); ?>"
                         >
                             <?php echo esc_html($isDineIn
-                                ? $labels->get('save_to_list', __('Save to list', 'appetitqr'))
-                                : $labels->get('add_to_cart', __('Add to cart', 'appetitqr'))); ?>
+                                ? $labels->get('save_to_list', __('Save to list', 'sakura-pixel-menu-embed-for-appetitqr'))
+                                : $labels->get('add_to_cart', __('Add to cart', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </button>
                     <?php elseif (!$isAvailable): ?>
                         <span class="apq-unavailable-note">
-                            <?php echo esc_html($labels->get('unavailable', __('Unavailable', 'appetitqr'))); ?>
+                            <?php echo esc_html($labels->get('unavailable', __('Unavailable', 'sakura-pixel-menu-embed-for-appetitqr'))); ?>
                         </span>
                     <?php endif; ?>
                 </div>
@@ -144,7 +144,7 @@ class ProductCard {
             <?php
             printf(
                 /* translators: %s: lowest price across a product's variations */
-                esc_html__('from %s', 'appetitqr'),
+                esc_html__('from %s', 'sakura-pixel-menu-embed-for-appetitqr'),
                 esc_html($prices->formatFrom($variations))
             );
             ?>

@@ -17,13 +17,13 @@ class IntegrationCtrl {
         self::requireManageOptions();
 
         if (!check_ajax_referer(self::NONCE_ACTION, 'nonce', false)) {
-            wp_send_json_error(['message' => esc_html__('Security check failed. Please reload the page.', 'appetitqr')], 400);
+            wp_send_json_error(['message' => esc_html__('Security check failed. Please reload the page.', 'sakura-pixel-menu-embed-for-appetitqr')], 400);
         }
 
         $apiKey = isset($_POST['api_key']) ? sanitize_text_field(wp_unslash($_POST['api_key'])) : '';
 
         if ($apiKey === '') {
-            wp_send_json_error(['message' => esc_html__('Please enter an API key to test.', 'appetitqr')]);
+            wp_send_json_error(['message' => esc_html__('Please enter an API key to test.', 'sakura-pixel-menu-embed-for-appetitqr')]);
         }
 
         $result = MenuApiService::fetchMenu($apiKey);
@@ -36,7 +36,7 @@ class IntegrationCtrl {
         $location = $data['location'] ?? [];
 
         wp_send_json_success([
-            'message'    => esc_html__('Connection successful.', 'appetitqr'),
+            'message'    => esc_html__('Connection successful.', 'sakura-pixel-menu-embed-for-appetitqr'),
             'location'   => isset($location['name']) ? sanitize_text_field($location['name']) : '',
             'products'   => is_array($data['products'] ?? null) ? count($data['products']) : 0,
             'categories' => is_array($data['categories'] ?? null) ? count($data['categories']) : 0,
@@ -48,12 +48,12 @@ class IntegrationCtrl {
         self::requireManageOptions();
 
         if (!check_ajax_referer(self::NONCE_ACTION, 'nonce', false)) {
-            wp_send_json_error(['message' => esc_html__('Security check failed. Please reload the page.', 'appetitqr')], 400);
+            wp_send_json_error(['message' => esc_html__('Security check failed. Please reload the page.', 'sakura-pixel-menu-embed-for-appetitqr')], 400);
         }
 
         MenuCacheService::purgeAll();
 
-        wp_send_json_success(['message' => esc_html__('Menu cache cleared.', 'appetitqr')]);
+        wp_send_json_success(['message' => esc_html__('Menu cache cleared.', 'sakura-pixel-menu-embed-for-appetitqr')]);
     }
 
     /**
@@ -62,7 +62,7 @@ class IntegrationCtrl {
      */
     private static function requireManageOptions(): void {
         if (!current_user_can('manage_options')) {
-            wp_send_json_error(['message' => esc_html__('You are not allowed to do this.', 'appetitqr')], 403);
+            wp_send_json_error(['message' => esc_html__('You are not allowed to do this.', 'sakura-pixel-menu-embed-for-appetitqr')], 403);
         }
     }
 }
