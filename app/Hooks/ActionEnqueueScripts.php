@@ -8,6 +8,14 @@ use AppetitQR\Hooks\IHook;
 
 class ActionEnqueueScripts implements IHook {
 
+    /** Menu stylesheet, and the companion handle its per-instance palette rides on. */
+    const STYLE_HANDLE        = 'appetitqr-menu';
+    const INLINE_STYLE_HANDLE = 'appetitqr-menu-inline';
+    const SCRIPT_HANDLE       = 'appetitqr-menu';
+    const FUSE_HANDLE         = 'appetitqr-fuse';
+
+    private static bool $frontendRegistered = false;
+
     static function register() {
         add_action('admin_enqueue_scripts', [self::class, 'loadAdminScripts']);
         add_action('wp_enqueue_scripts', [self::class, 'loadFrontendAssets']);
@@ -44,33 +52,60 @@ class ActionEnqueueScripts implements IHook {
         ]);
 
         wp_enqueue_script('appetitqr-admin-settings');
-        wp_enqueue_style('appetitqr-admin-settings', APPETITQR_APP_PUBLIC_URL . '/assets/admin/appetit-settings/dist/index.css', null, APPETITQR_VERSION);
+        wp_enqueue_style('appetitqr-admin-settings', APPETITQR_APP_PUBLIC_URL . '/assets/admin/appetit-settings/dist/index.css', [], APPETITQR_VERSION);
     }
 
     /**
-     * Frontend assets load only on content that actually contains the shortcode, so a
-     * site with one menu page does not carry this CSS/JS everywhere.
+     * Handles are registered on every frontend request, but enqueued only where the menu
+     * actually appears, so a site with one menu page does not carry this CSS/JS everywhere.
      */
     static function loadFrontendAssets() {
-        if (!self::currentPostHasShortcode()) {
+        self::registerFrontendAssets();
+
+        if (self::currentPostHasShortcode()) {
+            self::enqueueFrontendAssets();
+        }
+    }
+
+    /**
+     * Registration is deliberately separate from enqueueing: the shortcode enqueues these
+     * handles itself (MenuView::render) for the placements the content sniff below cannot
+     * see — a widget, a template part, or a block that builds its content at render time.
+     */
+    static function registerFrontendAssets(): void {
+        if (self::$frontendRegistered) {
             return;
         }
+        self::$frontendRegistered = true;
 
         $frontendUrl = APPETITQR_APP_PUBLIC_URL . '/app/Views/Frontend/assets';
 
-        wp_enqueue_style('appetitqr-menu', $frontendUrl . '/dist/index.css', [], APPETITQR_VERSION);
+        wp_register_style(self::STYLE_HANDLE, $frontendUrl . '/dist/index.css', [], APPETITQR_VERSION);
 
-        wp_enqueue_script('appetitqr-fuse', $frontendUrl . '/vendor/fuse.js@7.1.0.js', [], '7.1.0', true);
-        wp_enqueue_script('appetitqr-menu', $frontendUrl . '/dist/index.js', ['appetitqr-fuse'], APPETITQR_VERSION, true);
+        // Src-less carrier for the per-instance palette ThemeService builds while the
+        // shortcode renders. By then the menu stylesheet has usually been printed, and a
+        // finished handle accepts no further inline CSS, so the palette needs a handle of
+        // its own: this one is enqueued late and printed with the footer styles.
+        wp_register_style(self::INLINE_STYLE_HANDLE, false, [self::STYLE_HANDLE], APPETITQR_VERSION);
+
+        wp_register_script(self::FUSE_HANDLE, $frontendUrl . '/vendor/fuse.js@7.1.0.js', [], '7.1.0', true);
+        wp_register_script(self::SCRIPT_HANDLE, $frontendUrl . '/dist/index.js', [self::FUSE_HANDLE], APPETITQR_VERSION, true);
 
         // Only strings the script builds at runtime need to cross over; everything else
         // is already rendered (and translated) server-side.
-        wp_localize_script('appetitqr-menu', 'AppetitQRMenu', [
+        wp_localize_script(self::SCRIPT_HANDLE, 'AppetitQRMenu', [
             'labels' => [
                 /* translators: %s: formatted minimum order amount */
                 'minimumOrder' => esc_html__('Minimum order: %s', 'sakura-pixel-menu-embed-for-appetitqr'),
             ],
         ]);
+    }
+
+    static function enqueueFrontendAssets(): void {
+        self::registerFrontendAssets();
+
+        wp_enqueue_style(self::STYLE_HANDLE);
+        wp_enqueue_script(self::SCRIPT_HANDLE);
     }
 
     private static function currentPostHasShortcode(): bool {
@@ -83,15 +118,5 @@ class ActionEnqueueScripts implements IHook {
         $tag = Config::getInstance()->getSetting('shortcode_tag', 'wp_appetitqr');
 
         return has_shortcode($post->post_content, $tag);
-    }
-
-    static function enqueRemoteStyle($key, $url, $version = 'v1'): void {
-        $protocol = is_ssl() ? 'https' : 'http';
-        wp_enqueue_style($key, $protocol . $url, null, $version);
-    }
-
-    static function enqueRemoteScript($key, $url, array $dependencies = [], string $version = 'v1', bool $inFooter = true): void {
-        $protocol = is_ssl() ? 'https' : 'http';
-        wp_enqueue_script($key, $protocol . $url, $dependencies, $version, $inFooter);
     }
 }

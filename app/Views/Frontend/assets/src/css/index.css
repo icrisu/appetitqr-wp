@@ -9,6 +9,16 @@
    ========================================================================== */
 
 .appetitqr-app.appetitqr-app {
+    /* Fallback palette, in step with ThemeService::FALLBACK_PRIMARY/SECONDARY. The real
+       one arrives as an #id rule in the footer (it depends on the account's theme, which
+       is only known once the shortcode runs), so these values cover first paint until it
+       lands — without them var() would resolve to nothing at all. The #id rule outranks
+       this class selector whichever order the two end up in. */
+    --apq-primary: #cc1918;
+    --apq-secondary: #F1F5F9;
+    --apq-on-primary: #FFFFFF;
+    --apq-on-secondary: #111111;
+
     --apq-radius: 12px;
     --apq-gap: 20px;
     --apq-border: rgba(0, 0, 0, .1);

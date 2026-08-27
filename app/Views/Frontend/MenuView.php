@@ -4,6 +4,7 @@ namespace AppetitQR\Views\Frontend;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 use AppetitQR\Helpers\TranslationHelper;
+use AppetitQR\Hooks\ActionEnqueueScripts;
 use AppetitQR\Services\LabelService;
 use AppetitQR\Services\MenuApiService;
 use AppetitQR\Services\MenuCacheService;
@@ -88,9 +89,13 @@ class MenuView {
 
         $productsByCategory = self::groupByCategory($categories, $products, $lang);
 
-        ob_start();
+        // Enqueued here as well as on wp_enqueue_scripts: that hook only sees shortcodes
+        // sitting in the post content, and a menu can just as well come from a widget or
+        // a template part. Re-enqueueing an already-enqueued handle is a no-op.
+        ActionEnqueueScripts::enqueueFrontendAssets();
+        ThemeService::enqueueScopedStyles($instanceId, $theme);
 
-        ThemeService::printScopedStyles($instanceId, $theme);
+        ob_start();
         ?>
         <div
             id="<?php echo esc_attr($instanceId); ?>"

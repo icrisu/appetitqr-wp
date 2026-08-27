@@ -2,6 +2,7 @@
 namespace AppetitQR\Services;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+use AppetitQR\Hooks\ActionEnqueueScripts;
 use AppetitQR\Utils\Sanitizer;
 
 /**
@@ -25,7 +26,7 @@ class ThemeService {
 
     /**
      * The API resolves webAppColors (or the template defaults) for us; this only guards
-     * against malformed values before they reach a <style> block.
+     * against malformed values before they reach a CSS declaration.
      */
     static function getColors(array $theme): array {
         $colors = isset($theme['colors']) && is_array($theme['colors']) ? $theme['colors'] : [];
@@ -37,21 +38,28 @@ class ThemeService {
     }
 
     /**
-     * Inline <style> scoping the palette to this instance's wrapper id.
+     * Hands WordPress the palette for one instance as inline CSS, scoped to that
+     * instance's wrapper id so two menus on one page keep their own colors.
+     *
+     * Every interpolated value is a literal the plugin controls: the id comes from an
+     * internal counter (narrowed again by sanitize_html_class), and the colors have
+     * already been through Sanitizer::sanitizeHexColor, which is what keeps an API
+     * payload from breaking out of the declaration.
      */
-    static function printScopedStyles(string $instanceId, array $theme): void {
+    static function enqueueScopedStyles(string $instanceId, array $theme): void {
         $colors = self::getColors($theme);
 
-        echo '<style>';
-        printf(
+        $css = sprintf(
             '#%1$s{--apq-primary:%2$s;--apq-secondary:%3$s;--apq-on-primary:%4$s;--apq-on-secondary:%5$s;}',
-            esc_attr($instanceId),
-            esc_attr($colors['primary']),
-            esc_attr($colors['secondary']),
-            esc_attr(self::readableTextColor($colors['primary'])),
-            esc_attr(self::readableTextColor($colors['secondary']))
+            sanitize_html_class($instanceId),
+            $colors['primary'],
+            $colors['secondary'],
+            self::readableTextColor($colors['primary']),
+            self::readableTextColor($colors['secondary'])
         );
-        echo '</style>';
+
+        wp_enqueue_style(ActionEnqueueScripts::INLINE_STYLE_HANDLE);
+        wp_add_inline_style(ActionEnqueueScripts::INLINE_STYLE_HANDLE, $css);
     }
 
     /**

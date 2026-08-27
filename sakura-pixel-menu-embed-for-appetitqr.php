@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Plugin Name: AppetitQR - Digital QR Menus & Commission-Free Ordering for Restaurants
  * Description: Embed your AppetitQR digital menu on any WordPress page with a shortcode. Pulls your live menu, theme and colors straight from your AppetitQR account.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: sakurapixel
  * License: GPL-3.0-only
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'APPETITQR_APP_PUBLIC_URL', plugins_url( '', __FILE__ ) );
 define( 'APPETITQR_APP_PATH', plugin_dir_path( __FILE__ ) );
-define( 'APPETITQR_VERSION', '1.0.0' );
+define( 'APPETITQR_VERSION', '1.0.1' );
 
 /**
  * Composer is optional here: the plugin ships no third-party PHP dependencies, so a

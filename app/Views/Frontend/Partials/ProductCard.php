@@ -28,8 +28,8 @@ class ProductCard {
         $isAvailable = !isset($product['isAvailable']) || $product['isAvailable'];
         $image       = $product['imageSquare'] ?? $product['imageLandscape'] ?? null;
 
-        // The card carries everything the popup and cart need, so opening a product
-        // never costs another request.
+        // The card carries everything the popup and cart need on a data attribute, so
+        // opening a product never costs another request.
         $payload = self::buildPayload($product, $lang, $name, $description, $prices, $nutrition);
 
         $classes = 'apq-product';
@@ -50,6 +50,7 @@ class ProductCard {
             class="<?php echo esc_attr($classes); ?>"
             data-apq-product="<?php echo esc_attr($product['id'] ?? ''); ?>"
             data-apq-search-text="<?php echo esc_attr(self::searchText($name, $description)); ?>"
+            data-apq-product-data="<?php echo esc_attr(wp_json_encode($payload)); ?>"
             data-apq-open-product
             role="button"
             tabindex="0"
@@ -105,10 +106,6 @@ class ProductCard {
                     <?php endif; ?>
                 </div>
             </div>
-
-            <script type="application/json" data-apq-product-data>
-                <?php echo wp_json_encode($payload); ?>
-            </script>
         </article>
         <?php
     }

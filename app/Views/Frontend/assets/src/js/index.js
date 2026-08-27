@@ -332,8 +332,7 @@
 
         this.searchRecords = this.cards.map(function (card) {
             var id = card.getAttribute('data-apq-product');
-            var script = card.querySelector('[data-apq-product-data]');
-            var data = parseJson(script && script.textContent, null);
+            var data = parseJson(card.getAttribute('data-apq-product-data'), null);
 
             if (data) {
                 self.productData[id] = data;

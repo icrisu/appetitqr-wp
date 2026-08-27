@@ -2,9 +2,9 @@
 Contributors: sakurapixel
 Tags: restaurant, menu, qr code, food menu, ordering
 Requires at least: 6.4
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-3.0-only
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -106,7 +106,44 @@ table can look back at what they saved earlier.
 Put it on a separate page from your ordering menu and point your table QR codes at that page. The
 list also has to be enabled for dine-in on the location in your AppetitQR dashboard.
 
+== External services ==
+
+This plugin connects to the AppetitQR API, a third-party service operated by AppetitQR
+(https://appetitqr.com), to fetch the menu you publish with the shortcode. Without that
+connection the plugin has nothing to display: it renders a menu you manage in AppetitQR,
+it does not store one in WordPress.
+
+What is sent, and when:
+
+* Your site's server requests `https://appetitqr.com/api/wp/menu` and sends the location
+  API key you put in the shortcode, in an `X-Appetit-Api-Key` header. As with any HTTP
+  request, your server's IP address and user agent are visible to the service.
+* This happens when a visitor opens a page containing the shortcode and the cached copy of
+  the menu has expired (every 15 minutes by default), and when an administrator clicks
+  "Test connection" on the plugin's settings screen. It never happens on pages without
+  the shortcode.
+* No visitor data, personal data, or order data is sent. Carts are kept in the visitor's
+  own browser and handed to the restaurant over WhatsApp or a phone call; they do not pass
+  through the AppetitQR API.
+
+What comes back is your menu: the location's details, categories, products, prices,
+labels, opening hours, theme colors and image URLs. The images themselves stay on
+AppetitQR's servers, so a visitor's browser loads them directly from there and AppetitQR
+receives that request in the process.
+
+Terms of service: https://appetitqr.com/terms
+Privacy policy: https://appetitqr.com/privacy
+
 == Changelog ==
+
+= 1.0.1 =
+* The per-instance theme colors are now handed to WordPress with wp_add_inline_style()
+  instead of being printed as a style block by the shortcode.
+* Frontend assets are registered on the wp_enqueue_scripts hook and enqueued by the
+  shortcode itself, so a menu placed in a widget or a template part gets its CSS and JS.
+* Product data for the popup and cart moved from an inline JSON script tag to a data
+  attribute on the product card.
+* Documented the AppetitQR API connection under "External services".
 
 = 1.0.0 =
 * Initial release.

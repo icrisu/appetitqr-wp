@@ -18,8 +18,8 @@ class Sanitizer {
 
     /**
      * Hex color coming back from the API. Anything that is not a plain #rgb/#rrggbb is
-     * dropped rather than echoed, since these values are interpolated into a <style>
-     * block where a crafted value could otherwise break out of the declaration.
+     * dropped rather than used, since these values are interpolated into a CSS
+     * declaration where a crafted value could otherwise break out of it.
      */
     public static function sanitizeHexColor(mixed $color, string $fallback = ''): string {
         if (!is_string($color)) {
