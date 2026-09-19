@@ -12,11 +12,19 @@ class GeneralSettings extends BaseView implements IView {
         $groupSlug  = OptionUtils::OPTION_GROUP_SLUG;
         $cacheTtl   = (int) $options->getOption('cache_ttl', Config::DEFAULT_CACHE_TTL);
         ?>
+        <div class="appetit-features" style="margin-bottom: 30px;border-style: solid; border-width: 1px; border-color: #CCC;">
+            <img style="width: 100%;" src="<?php echo esc_attr(APPETITQR_APP_PUBLIC_URL . '/assets/img/splashscreen.webp') ?>" alt="">
+            <div style="margin: 20px 0px; display: flex; justify-content: center">
+                <a href="https://appetitqr.com" target="_blank" class="button button-primary" id="appetitqr-home">
+                    <?php esc_html_e('Appetit Home', 'sakura-pixel-menu-embed-for-appetitqr'); ?>
+                </a>
+            </div>
+        </div>
         <div class="apq-callout apq-callout-info">
             <?php esc_html_e('Generate an API key in your AppetitQR dashboard under Locations → your location → Settings → Integrations, then paste it into the shortcode on any page.', 'sakura-pixel-menu-embed-for-appetitqr'); ?>
         </div>
 
-        <table class="form-table" role="presentation">
+        <table class="form-table appetit-settings" role="presentation">
             <tr>
                 <th scope="row">
                     <label for="appetitqr-cache-ttl"><?php esc_html_e('Menu cache lifetime (seconds)', 'sakura-pixel-menu-embed-for-appetitqr'); ?></label>

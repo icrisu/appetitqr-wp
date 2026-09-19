@@ -41,7 +41,7 @@ class Shortcodes extends BaseView implements IView {
         </table>
 
         <h3><?php esc_html_e('Examples', 'sakura-pixel-menu-embed-for-appetitqr'); ?></h3>
-        <pre class="apq-code"><code>[wp_appetitqr api_key="apq_your_key_here" lang="ro"]
+        <pre class="apq-code"><code>[wp_appetitqr api_key="apq_your_key_here" lang="en"]
 
 [wp_appetitqr api_key="apq_your_key_here" show_cart="0" show_info="0"]
 

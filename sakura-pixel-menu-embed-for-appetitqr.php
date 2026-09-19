@@ -2,6 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Plugin Name: AppetitQR - Digital QR Menus & Commission-Free Ordering for Restaurants
+ * Plugin URI: https://appetitqr.com
  * Description: Embed your AppetitQR digital menu on any WordPress page with a shortcode. Pulls your live menu, theme and colors straight from your AppetitQR account.
  * Version: 1.0.1
  * Author: sakurapixel
