@@ -26,6 +26,17 @@
         margin-bottom: 0;
     }
 
+    /* Features / Settings tabs inside the general panel. */
+    .apq-tabs {
+        margin-bottom: 20px;
+        padding-top: 0;
+    }
+
+    /* !important: the hidden attribute must win over any display rule. */
+    .apq-tab-panel[hidden] {
+        display: none !important;
+    }
+
     /* Keep inputs from stretching edge to edge on wide screens. */
     .form-table input.regular-text {
         max-width: 100%;

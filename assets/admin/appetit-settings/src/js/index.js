@@ -85,7 +85,35 @@
             });
     }
 
+    function switchTab(id) {
+        $('[data-apq-tab]').each(function () {
+            var active = $(this).data('apq-tab') === id;
+            $(this).toggleClass('nav-tab-active', active).attr('aria-selected', active ? 'true' : 'false');
+        });
+        $('.apq-tab-panel').each(function () {
+            $(this).prop('hidden', this.id !== id);
+        });
+    }
+
+    function initialTab() {
+        var hash = window.location.hash.replace('#', '');
+        if (hash && $('[data-apq-tab="' + hash + '"]').length) {
+            return hash;
+        }
+        // options.php redirects back with settings-updated=true after Save.
+        if (/[?&]settings-updated=true/.test(window.location.search)) {
+            return 'appetit-settings';
+        }
+        return 'appetit-features';
+    }
+
     $(function () {
+        $('[data-apq-tab]').on('click', function (e) {
+            e.preventDefault();
+            switchTab($(this).data('apq-tab'));
+        });
+        switchTab(initialTab());
+
         $('#appetitqr-test-connection').on('click', testConnection);
         $('#appetitqr-clear-cache').on('click', clearCache);
     });

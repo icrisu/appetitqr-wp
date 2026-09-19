@@ -24,6 +24,15 @@
     margin-bottom: 0;
 }
 
+.appetitqr-settings .apq-tabs {
+    margin-bottom: 20px;
+    padding-top: 0;
+}
+
+.appetitqr-settings .apq-tab-panel[hidden] {
+    display: none !important;
+}
+
 .appetitqr-settings .form-table input.regular-text {
     max-width: 100%;
 }

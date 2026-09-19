@@ -31,8 +31,21 @@ class ActionEnqueueScripts implements IHook {
         }
     }
 
+    /**
+     * Version admin assets by file mtime: the server sends no Cache-Control, so a fixed
+     * plugin version lets browsers keep serving a stale copy after the file changes.
+     */
+    private static function assetVersion(string $relativePath): string {
+        $mtime = @filemtime(APPETITQR_APP_PATH . ltrim($relativePath, '/'));
+
+        return $mtime ? APPETITQR_VERSION . '.' . $mtime : APPETITQR_VERSION;
+    }
+
     private static function loadAdminAssets() {
-        wp_register_script('appetitqr-admin-settings', APPETITQR_APP_PUBLIC_URL . '/assets/admin/appetit-settings/dist/index.js', ['jquery'], APPETITQR_VERSION, true);
+        $jsPath  = 'assets/admin/appetit-settings/dist/index.js';
+        $cssPath = 'assets/admin/appetit-settings/dist/index.css';
+
+        wp_register_script('appetitqr-admin-settings', APPETITQR_APP_PUBLIC_URL . '/' . $jsPath, ['jquery'], self::assetVersion($jsPath), true);
 
         wp_localize_script('appetitqr-admin-settings', 'APPETITQR_ADMIN_SETTINGS', [
             'ajax_url' => admin_url('admin-ajax.php'),
@@ -52,7 +65,7 @@ class ActionEnqueueScripts implements IHook {
         ]);
 
         wp_enqueue_script('appetitqr-admin-settings');
-        wp_enqueue_style('appetitqr-admin-settings', APPETITQR_APP_PUBLIC_URL . '/assets/admin/appetit-settings/dist/index.css', [], APPETITQR_VERSION);
+        wp_enqueue_style('appetitqr-admin-settings', APPETITQR_APP_PUBLIC_URL . '/' . $cssPath, [], self::assetVersion($cssPath));
     }
 
     /**
