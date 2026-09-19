@@ -231,6 +231,15 @@ What is sent, and when:
 * Menu data returned by the API includes the location's details, categories, products, prices, labels, opening hours, theme colors and image URLs.
 * Product images are served from AppetitQR's servers, so visitors' browsers request those images directly from AppetitQR.
 
+
+== Screenshots ==
+
+1. Digital menu themes and mobile storefront previews for restaurant ordering
+2. Multi-location restaurant management dashboard and location overview
+3. Master products catalog with menu item management and categories
+4. Customizable digital menu templates, themes, and web app styling settings
+5. Location-specific menu item visibility, product status, and channels setup
+
 Terms of service: https://appetitqr.com/terms
 
 Privacy policy: https://appetitqr.com/privacy
