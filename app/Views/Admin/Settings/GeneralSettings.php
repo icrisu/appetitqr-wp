@@ -34,6 +34,9 @@ class GeneralSettings extends BaseView implements IView
                     </a>
                 </div>
             </div>
+            <div class="features-2" style="margin-bottom: 30px;">
+                <?php (new Features())->render() ?>
+            </div>
         </div>
 
         <div id="appetit-settings" class="apq-tab-panel" role="tabpanel" hidden>

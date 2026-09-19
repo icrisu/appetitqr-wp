@@ -37,6 +37,138 @@
         display: none !important;
     }
 
+    /* "The toolkit" feature grid, matching the AppetitQR homepage section.
+       Columns follow the panel width (container query), not the viewport. */
+    .apq-toolkit {
+        container: apq-toolkit / inline-size;
+    }
+
+    .apq-toolkit-eyebrow {
+        margin: 0;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #6950f3;
+    }
+
+    .apq-toolkit-title {
+        margin: 12px 0 0;
+        padding: 0;
+        text-align: center;
+        font-size: 28px;
+        line-height: 1.25;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #18181b;
+    }
+
+    .apq-toolkit-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #d4d4d8;
+        border-radius: 12px;
+    }
+
+    .apq-toolkit-item {
+        padding: 32px;
+        border: 0 solid #d4d4d8;
+        border-bottom-width: 1px;
+    }
+
+    .apq-toolkit-item.apq-nbb-1 {
+        border-bottom-width: 0;
+    }
+
+    .apq-toolkit-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .apq-toolkit-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        background: rgba(105, 80, 243, 0.1);
+        color: #6950f3;
+    }
+
+    .apq-toolkit-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .apq-toolkit-label {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #6950f3;
+    }
+
+    .apq-toolkit-item h3 {
+        margin: 16px 0 0;
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 600;
+        color: #0a0a0a;
+    }
+
+    .apq-toolkit-item p {
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.625;
+        color: #262626;
+    }
+
+    @container apq-toolkit (min-width: 560px) {
+        .apq-toolkit-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .apq-toolkit-item {
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+        }
+
+        .apq-toolkit-item.apq-nbr-2 {
+            border-right-width: 0;
+        }
+
+        .apq-toolkit-item.apq-nbb-2 {
+            border-bottom-width: 0;
+        }
+    }
+
+    @container apq-toolkit (min-width: 760px) {
+        .apq-toolkit-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .apq-toolkit-item,
+        .apq-toolkit-item.apq-nbr-2,
+        .apq-toolkit-item.apq-nbb-2 {
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+        }
+
+        .apq-toolkit-item.apq-nbr-3 {
+            border-right-width: 0;
+        }
+
+        .apq-toolkit-item.apq-nbb-3 {
+            border-bottom-width: 0;
+        }
+    }
+
     /* Keep inputs from stretching edge to edge on wide screens. */
     .form-table input.regular-text {
         max-width: 100%;
