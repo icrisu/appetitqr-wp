@@ -12,8 +12,8 @@ use AppetitQR\Utils\Sanitizer;
  */
 class ThemeService {
 
-    /** Mirrors the four template ids in app/m/[locationSlug]/_templates/registry.ts. */
-    const KNOWN_TEMPLATES = ['default', 'modern', 'bistro', 'nocturnal'];
+    /** Mirrors the five template ids in app/m/[locationSlug]/_templates/registry.ts. */
+    const KNOWN_TEMPLATES = ['default', 'modern', 'bistro', 'nocturnal', 'lumiere'];
 
     const FALLBACK_PRIMARY   = '#cc1918';
     const FALLBACK_SECONDARY = '#F1F5F9';

@@ -1110,9 +1110,130 @@
     color: var(--apq-text);
 }
 
+/* Lumiere -----------------------------------------------------------------
+
+   Gold-on-black, candlelit (lumiere/theme.ts). Its default secondary (#0b0b0d)
+   already puts it on the dark scheme above; this block adds the template's own
+   accents. Sits after the dark-scheme rules so equal-specificity selectors win
+   on source order. Headings ask for Cormorant Garamond but the plugin never
+   loads remote fonts, so a site without it falls back to a system serif.
+   ---------------------------------------------------------------------- */
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere {
+    --apq-font-heading: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+    --apq-lumiere-title: #f3eae0;
+    --apq-lumiere-price: #deb853;
+    --apq-lumiere-category: #d8be75;
+    --apq-lumiere-border: rgba(212, 175, 55, .2);
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-hero-type {
+    border-bottom: 0;
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-hero-type .apq-hero-title {
+    color: var(--apq-primary);
+    font-family: var(--apq-font-heading);
+    font-size: 2.25rem;
+    font-weight: 500;
+    letter-spacing: .025em;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-hero-type .apq-hero-title {
+        background: linear-gradient(135deg, #f5e6be 0%, var(--apq-primary) 50%, #aa820a 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-hero-type .apq-hero-subtitle {
+    color: color-mix(in srgb, var(--apq-primary) 80%, transparent);
+    font-size: .625rem;
+    font-weight: 500;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+}
+
+/* The ◇◆◇ divider from lumiere/CategoryOrnament.tsx: the glyphs centred, with
+   a gradient hairline fading in from each side. */
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-ornament,
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-category-title::after {
+    background:
+        linear-gradient(to right, transparent, var(--apq-primary)) left center / calc(50% - 22px) 1px no-repeat,
+        linear-gradient(to left, transparent, var(--apq-primary)) right center / calc(50% - 22px) 1px no-repeat;
+    color: var(--apq-primary);
+    content: "\25C7\25C6\25C7";
+    display: block;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin: 6px auto 0;
+    max-width: 200px;
+    opacity: .75;
+    text-align: center;
+    text-transform: none;
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-ornament {
+    max-width: 120px;
+    margin-top: 10px;
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-ornament::before {
+    content: "\25C7";
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-category-title {
+    color: var(--apq-lumiere-category);
+    font-family: var(--apq-font-heading);
+    font-weight: 500;
+    letter-spacing: .28em;
+    margin-bottom: 18px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-product {
+    background: linear-gradient(to right, #141418, #101013, #0c0c0e);
+    border-color: var(--apq-lumiere-border);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .4), 0 4px 6px -4px rgba(0, 0, 0, .4);
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-product-title {
+    color: var(--apq-lumiere-title);
+    font-family: var(--apq-font-heading);
+    font-weight: 600;
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-product:hover .apq-product-title,
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-product:focus-visible .apq-product-title {
+    color: var(--apq-primary);
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-price,
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-price-sale,
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-price-from,
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-modal-price {
+    color: var(--apq-lumiere-price);
+    font-family: var(--apq-font-heading);
+}
+
+.appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-modal-title {
+    font-family: var(--apq-font-heading);
+}
+
 /* Responsive ------------------------------------------------------------- */
 
 @media (min-width: 640px) {
+    .appetitqr-app.appetitqr-app.apq-tpl-lumiere .apq-hero-type .apq-hero-title {
+        font-size: 3rem;
+    }
+
     .appetitqr-app.appetitqr-app .apq-hero {
         height: 256px;
     }

@@ -16,9 +16,9 @@ class InfoBlock {
     /**
      * The menu's opening header, matching whichever template the account uses.
      *
-     * Three of the four templates lead with a full-width landscape cover photo carrying
-     * the name over it; Bistro instead uses a typographic header with no image
-     * (bistro/MenuClient.tsx:244). A hero template with no cover image uploaded falls
+     * Three of the five templates lead with a full-width landscape cover photo carrying
+     * the name over it; Bistro and Lumiere instead use a typographic header with no image
+     * (bistro/MenuClient.tsx:244, lumiere/MenuClient.tsx:350). A hero template with no cover image uploaded falls
      * back to a compact row rather than rendering an empty scrim over nothing.
      */
     static function renderHeader(array $location, array $widths, string $lang, string $template = 'default'): void {
@@ -30,8 +30,8 @@ class InfoBlock {
             return;
         }
 
-        if ($template === 'bistro') {
-            self::renderTypographicHeader($location, $name);
+        if ($template === 'bistro' || $template === 'lumiere') {
+            self::renderTypographicHeader($location, $name, $template === 'lumiere');
             return;
         }
 
@@ -74,14 +74,18 @@ class InfoBlock {
     }
 
     /**
-     * Bistro: centred name over a rule, no image.
+     * Bistro and Lumiere: centred name, no image. Bistro sits it over a rule; Lumiere
+     * closes it with a small gold ornament (lumiere/CategoryOrnament.tsx).
      */
-    private static function renderTypographicHeader(array $location, string $name): void {
+    private static function renderTypographicHeader(array $location, string $name, bool $withOrnament = false): void {
         ?>
         <header class="apq-hero-type">
             <h2 class="apq-hero-title"><?php echo esc_html($name); ?></h2>
             <?php if (!empty($location['subtitle'])): ?>
                 <p class="apq-hero-subtitle"><?php echo esc_html($location['subtitle']); ?></p>
+            <?php endif; ?>
+            <?php if ($withOrnament): ?>
+                <span class="apq-ornament" aria-hidden="true"></span>
             <?php endif; ?>
         </header>
         <?php

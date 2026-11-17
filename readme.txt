@@ -24,7 +24,7 @@ Embed an AppetitQR restaurant menu in WordPress with a shortcode: products, pric
 
 [Mobile Web App Preview (Nocturnal)](https://neon-nights.appetitqr.com/?theme=nocturnal&lang=en)
 
-[AppetitQR](https://appetitqr.com/) is a digital menu and commission-free ordering platform for restaurants, cafés and multi-location businesses.
+AppetitQR is a digital menu and commission-free ordering platform for restaurants, cafés and multi-location businesses.
 
 This WordPress plugin lets you embed your AppetitQR menu directly into any WordPress page, post, widget or template using a simple shortcode.
 
