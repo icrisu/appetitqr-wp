@@ -4,7 +4,7 @@ Tags: restaurant, qr code, restaurant menu, online ordering, whatsapp ordering
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPL-3.0-only
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -259,8 +259,18 @@ AppetitQR privacy policy: https://appetitqr.com/privacy
 3. Master products catalog with menu item management and categories
 4. Customizable digital menu templates, themes, and web app styling settings
 5. Location-specific menu item visibility, product status, and channels setup
+6. Commission-free WhatsApp ordering: guests scan a table QR code and send their order to the restaurant
+7. AI menu translation into multiple languages (French, Spanish, German and more)
+8. Installable menu (PWA): add to home screen, fast and app-like with no app store required
+9. Push promotions that bring customers back to the restaurant
 
 == Changelog ==
+
+= 1.0.2 =
+
+* Added support for the Lumiere menu template: typographic gold header, ornamented category titles and dark gold-bordered product cards.
+* Added theme preview links and new screenshots to the readme.
+* Readme: Installation, FAQ and External services are now proper sections; added a support FAQ entry.
 
 = 1.0.1 =
 
@@ -274,6 +284,10 @@ AppetitQR privacy policy: https://appetitqr.com/privacy
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+
+Adds the Lumiere menu template.
 
 = 1.0.1 =
 
