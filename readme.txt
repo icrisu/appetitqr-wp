@@ -1,6 +1,6 @@
 === AppetitQR - Digital QR Menus & Commission-Free Ordering for Restaurants ===
 Contributors: sakurapixel
-Tags: restaurant, qr code, restaurant menu, food menu, online ordering
+Tags: restaurant, qr code, restaurant menu, online ordering, whatsapp ordering
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.2
@@ -8,9 +8,21 @@ Stable tag: 1.0.1
 License: GPL-3.0-only
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
-Embed a live AppetitQR digital restaurant menu in WordPress with a shortcode, including products, prices, images, allergens and ordering.
+Embed an AppetitQR restaurant menu in WordPress with a shortcode: products, prices, allergens and commission-free WhatsApp ordering for restaurants.
 
 == Description ==
+
+[AppetitQR](https://appetitqr.com/)
+
+[Mobile Web App Preview (Classic)](https://bella-cucina.appetitqr.com/?theme=default&lang=en)
+
+[Mobile Web App Preview (Modern Noir)](https://ocean-breeze-cafe.appetitqr.com/?theme=modern&lang=en)
+
+[Mobile Web App Preview (Lumiere)](https://old-town.appetitqr.com/?theme=lumiere&lang=en)
+
+[Mobile Web App Preview (Bistro)](https://old-town.appetitqr.com/?theme=bistro&lang=en)
+
+[Mobile Web App Preview (Nocturnal)](https://neon-nights.appetitqr.com/?theme=nocturnal&lang=en)
 
 [AppetitQR](https://appetitqr.com/) is a digital menu and commission-free ordering platform for restaurants, cafés and multi-location businesses.
 
@@ -117,7 +129,7 @@ The plugin can display:
 * Product detail popups
 * Optional ordering cart
 
-= Installation =
+== Installation ==
 
 1. Install and activate the plugin from WordPress.
 2. In your AppetitQR dashboard, go to **Locations → your location → Settings → Integrations**.
@@ -167,7 +179,7 @@ For example, each location can have its own menu, branding, contact information 
 
 Multiple locations can be managed from one AppetitQR account.
 
-= Frequently Asked Questions =
+== Frequently Asked Questions ==
 
 = Do I need an AppetitQR account? =
 
@@ -215,7 +227,11 @@ The API key grants read access to the location's menu. Treat it as private and r
 
 No. The plugin does not process card payments. When ordering is enabled, the cart is handed to the restaurant through WhatsApp or a phone call.
 
-= External services =
+= Where can I get support? =
+
+For questions about the WordPress plugin, use the plugin's support forum on WordPress.org. For questions about your AppetitQR account, menus or billing, contact AppetitQR through [appetitqr.com](https://appetitqr.com/).
+
+== External services ==
 
 This plugin connects to the AppetitQR API, a third-party service operated by AppetitQR (https://appetitqr.com), to fetch the menu published through the shortcode.
 
@@ -231,6 +247,10 @@ What is sent, and when:
 * Menu data returned by the API includes the location's details, categories, products, prices, labels, opening hours, theme colors and image URLs.
 * Product images are served from AppetitQR's servers, so visitors' browsers request those images directly from AppetitQR.
 
+AppetitQR terms of service: https://appetitqr.com/terms
+
+AppetitQR privacy policy: https://appetitqr.com/privacy
+
 
 == Screenshots ==
 
@@ -239,10 +259,6 @@ What is sent, and when:
 3. Master products catalog with menu item management and categories
 4. Customizable digital menu templates, themes, and web app styling settings
 5. Location-specific menu item visibility, product status, and channels setup
-
-Terms of service: https://appetitqr.com/terms
-
-Privacy policy: https://appetitqr.com/privacy
 
 == Changelog ==
 
@@ -256,3 +272,9 @@ Privacy policy: https://appetitqr.com/privacy
 = 1.0.0 =
 
 * Initial release.
+
+== Upgrade Notice ==
+
+= 1.0.1 =
+
+Menus placed in widgets and template parts now load their styles and scripts correctly.

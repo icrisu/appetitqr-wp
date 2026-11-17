@@ -6,6 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * Description: Embed your AppetitQR digital menu on any WordPress page with a shortcode. Pulls your live menu, theme and colors straight from your AppetitQR account.
  * Version: 1.0.1
  * Author: sakurapixel
+ * Author URI: https://appetitqr.com/contact
  * License: GPL-3.0-only
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain: sakura-pixel-menu-embed-for-appetitqr
